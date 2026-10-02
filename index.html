@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en-US" class="js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Royal Banquet Palace – Luxury Wedding & Banquet Hall in Delhi</title>
+    <meta name="description"
+        content="Host unforgettable weddings, parties, and corporate events at The Royal Banquet Palace in Delhi. Elegant venues, top-tier catering, and personalized service.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&family=Raleway:wght@300;400;500;600&family=Dancing+Script:wght@400;500;600;700&family=Tangerine:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/romantic-sparkle-trail.css">
+    <link rel="stylesheet" href="assets/css/rose-petal-fall.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+    <link rel="stylesheet" href="assets/css/hero-section.css">
+    <link rel="stylesheet" href="assets/css/romantic-divider.css">
+    <link rel="stylesheet" href="assets/css/sections-general.css">
+    <link rel="stylesheet" href="assets/css/ventures-section.css">
+    <link rel="stylesheet" href="assets/css/about-section.css">
+    <link rel="stylesheet" href="assets/css/stats-counter.css">
+    <link rel="stylesheet" href="assets/css/services-section.css">
+    <link rel="stylesheet" href="assets/css/portfolio-gallery.css">
+    <link rel="stylesheet" href="assets/css/team-section.css">
+    <link rel="stylesheet" href="assets/css/testimonials.css">
+    <link rel="stylesheet" href="assets/css/cta-section.css">
+    <link rel="stylesheet" href="assets/css/blog-section.css">
+    <link rel="stylesheet" href="assets/css/contact-section.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top.css">
+    <link rel="stylesheet" href="assets/css/mobile-nav.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/accessibility-reduced-motion.css">
+</head>
+
+<body>
+    <!-- Sparkle Trail Container -->
+    <div class="sparkle-trail-container" id="sparkleTrailContainer"></div>
+
+    <!-- Rose Petal Container -->
+    <div class="petal-container" id="petalContainer"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">Home</a>
+        <a href="#ventures">Our Ventures</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#team">Our Team</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top"><i
+            class="fas fa-chevron-up"></i></button>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="nav-logo"><span class="logo-icon">✦</span> The Royal Banquet</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#ventures">Ventures</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact" class="nav-cta">Book Now</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-img"></div>
+        <div class="hero-overlay"></div>
+        <div class="hearts-container" id="heartsContainer"></div>
+        <div class="hero-content">
+            <span class="hero-tag">Where Love Stories Begin</span>
+            <h1>The Royal Banquet Palace</h1>
+            <div class="romantic-divider">
+                <span class="divider-line"></span>
+                <span class="divider-icon">♥</span>
+                <span class="divider-line"></span>
+            </div>
+            <p>Step into a world of timeless elegance where every celebration becomes a cherished memory. From intimate
+                gatherings to grand weddings, we craft moments that last a lifetime.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Book Your Date</a>
+                <a href="#ventures" class="btn btn-outline">Explore Venues</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventures Section -->
+    <section class="section ventures-section" id="ventures">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Royal Ventures</span>
+                <h2>Discover Our Majestic Venues</h2>
+                <div class="romantic-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-icon">💎</span>
+                    <span class="divider-line"></span>
+                </div>
+                <p style="color:var(--text-light);max-width:600px;margin:0.8rem auto 0;">Two extraordinary banquet halls
+                    designed to make your special day truly unforgettable.</p>
+            </div>
+            <div class="ventures-grid">
+                <div class="venture-card"
+                    onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                    <div class="venture-card-img"
+                        style="background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 500%22><defs><linearGradient id=%22g1%22><stop offset=%220%22 stop-color=%22%23c8a882%22/><stop offset=%22100%22 stop-color=%22%238b5e3c%22/></linearGradient></defs><rect fill=%22url(%23g1)%22 width=%22600%22 height=%22500%22/><text x=%22300%22 y=%22250%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22 font-family=%22serif%22>✦ The Royal Banquet ✦</text></svg>');">
+                    </div>
+                    <div class="venture-card-overlay">
+                        <h3>The Royal Banquet</h3>
+                        <p style="margin-bottom:0.6rem;">Intimate elegance for up to 500 guests</p>
+                        <span class="venture-link">Explore Venue →</span>
+                    </div>
+                </div>
+                <div class="venture-card"
+                    onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                    <div class="venture-card-img"
+                        style="background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 500%22><defs><linearGradient id=%22g2%22><stop offset=%220%22 stop-color=%22%23b76e6e%22/><stop offset=%22100%22 stop-color=%22%235c2a2a%22/></linearGradient></defs><rect fill=%22url(%23g2)%22 width=%22600%22 height=%22500%22/><text x=%22300%22 y=%22250%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22 font-family=%22serif%22>✦ The Royal Palace ✦</text></svg>');">
+                    </div>
+                    <div class="venture-card-overlay">
+                        <h3>The Royal Palace</h3>
+                        <p style="margin-bottom:0.6rem;">Grand celebrations for up to 1200 guests</p>
+                        <span class="venture-link">Explore Venue →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrap">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 500'><defs><radialGradient id='ag'><stop offset='0%' stop-color='%23fdf8f4'/><stop offset='100%' stop-color='%23d4a5a5'/></radialGradient></defs><rect fill='url(%23ag)' width='600' height='500'/><circle cx='300' cy='230' r='140' fill='%23c8a88233'/><text x='300' y='260' text-anchor='middle' fill='%238b3a3a' font-size='26' font-family='serif'>♥ Royal Elegance ♥</text></svg>"
+                        alt="Royal Banquet Palace interior" style="width:100%;border-radius:var(--border-radius-lg);">
+                </div>
+                <div class="about-text">
+                    <span class="section-subtitle" style="text-align:left;">Our Story</span>
+                    <h2 style="margin-bottom:1rem;">Crafting Timeless Celebrations Since 2010</h2>
+                    <div class="romantic-divider" style="justify-content:flex-start;">
+                        <span class="divider-line"></span>
+                        <span class="divider-icon">🌹</span>
+                        <span class="divider-line"></span>
+                    </div>
+                    <p style="margin-bottom:1rem;">At <strong>The Royal Banquet Palace</strong>, we believe every love
+                        story deserves a magnificent beginning. Our journey started with a simple dream — to create
+                        spaces where joy, elegance, and romance intertwine seamlessly.</p>
+                    <p style="margin-bottom:1.5rem;">With over a decade of experience, we've hosted thousands of
+                        weddings, receptions, and celebrations, each one unique and crafted with meticulous attention to
+                        detail. Our team pours their heart into every event, ensuring your special day is nothing short
+                        of perfection.</p>
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="1500">0</span><span class="stat-number">+</span>
+                            <span class="stat-label">Events Hosted</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="15">0</span><span class="stat-number">+</span>
+                            <span class="stat-label">Years of Excellence</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="5000">0</span><span class="stat-number">+</span>
+                            <span class="stat-label">Happy Couples</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="50">0</span><span class="stat-number">+</span>
+                            <span class="stat-label">Team Members</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">What We Offer</span>
+                <h2>Our Royal Services</h2>
+                <div class="romantic-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-icon">✨</span>
+                    <span class="divider-line"></span>
+                </div>
+                <p style="color:var(--text-light);max-width:600px;margin:0.8rem auto 0;">Comprehensive event solutions
+                    tailored to your dreams, from intimate gatherings to grand celebrations.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">💍</span>
+                    <h4>Weddings & Receptions</h4>
+                    <p>Create your fairy-tale wedding in our breathtaking venues with personalized planning and décor.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🌸</span>
+                    <h4>Pre-Wedding Functions</h4>
+                    <p>Mehndi, Sangeet, and Haldi ceremonies in vibrant, beautifully themed settings.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🎂</span>
+                    <h4>Birthdays & Anniversaries</h4>
+                    <p>Celebrate life's milestones with custom themes, gourmet catering, and lively entertainment.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">💼</span>
+                    <h4>Corporate Events</h4>
+                    <p>Impress clients and colleagues with sophisticated setups, AV equipment, and seamless
+                        coordination.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🎨</span>
+                    <h4>Custom Decor & Themes</h4>
+                    <p>From royal vintage to modern chic — our designers bring your unique vision to life.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🍽️</span>
+                    <h4>Catering Services</h4>
+                    <p>Exquisite multi-cuisine menus crafted by our expert chefs, delighting every palate.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🎵</span>
+                    <h4>Entertainment & Music</h4>
+                    <p>Live bands, DJs, and cultural performances to keep your guests enchanted all evening.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🤝</span>
+                    <h4>Venue Coordination</h4>
+                    <p>Dedicated event managers ensure every detail is flawlessly executed from start to finish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery -->
+    <section class="section portfolio-section" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Gallery</span>
+                <h2>Moments We've Created</h2>
+                <div class="romantic-divider">
+                    <span class="divider-line"
+                        style="background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);"></span>
+                    <span class="divider-icon">📸</span>
+                    <span class="divider-line"
+                        style="background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);"></span>
+                </div>
+                <p style="color:rgba(255,255,255,0.7);max-width:600px;margin:0.8rem auto 0;">A glimpse into the magical
+                    celebrations we've had the honor of hosting.</p>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+            </div>
+            <div style="text-align:center;margin-top:2.5rem;">
+                <a href="#contact" class="btn btn-outline">Plan Your Event</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team-section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Meet Our Family</span>
+                <h2>The People Behind the Magic</h2>
+                <div class="romantic-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-icon">👑</span>
+                    <span class="divider-line"></span>
+                </div>
+                <p style="color:var(--text-light);max-width:600px;margin:0.8rem auto 0;">Dedicated professionals who
+                    pour their passion into making your celebration extraordinary.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='80' r='45' fill='%23c8a882'/><ellipse cx='100' cy='170' rx='70' ry='55' fill='%23c8a88233'/><text x='100' y='88' text-anchor='middle' fill='white' font-size='28'>👤</text></svg>"
+                        alt="Neeraj Ceasar" class="team-avatar">
+                    <h4>Neeraj Ceasar</h4>
+                    <span class="team-role">Manager – The Royal Banquet</span>
+                    <p style="color:var(--text-light);font-size:0.9rem;margin-top:0.5rem;">Years of expertise in
+                        crafting flawless celebrations with warmth and precision.</p>
+                </div>
+                <div class="team-card">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='80' r='45' fill='%23b76e6e'/><ellipse cx='100' cy='170' rx='70' ry='55' fill='%23b76e6e33'/><text x='100' y='88' text-anchor='middle' fill='white' font-size='28'>👤</text></svg>"
+                        alt="Sandeep Sharma" class="team-avatar">
+                    <h4>Sandeep Sharma</h4>
+                    <span class="team-role">Manager – The Royal Palace</span>
+                    <p style="color:var(--text-light);font-size:0.9rem;margin-top:0.5rem;">Detail-oriented leader
+                        committed to delivering seamless, grand experiences.</p>
+                </div>
+                <div class="team-card">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='80' r='45' fill='%23c9a96e'/><ellipse cx='100' cy='170' rx='70' ry='55' fill='%23c9a96e33'/><text x='100' y='88' text-anchor='middle' fill='white' font-size='28'>👤</text></svg>"
+                        alt="Priya Kapoor" class="team-avatar">
+                    <h4>Priya Kapoor</h4>
+                    <span class="team-role">Head of Decor & Design</span>
+                    <p style="color:var(--text-light);font-size:0.9rem;margin-top:0.5rem;">Creative visionary who
+                        transforms spaces into breathtaking works of art.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Love Letters</span>
+                <h2>What Our Couples Say</h2>
+                <div class="romantic-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-icon">💌</span>
+                    <span class="divider-line"></span>
+                </div>
+            </div>
+            <div class="testimonial-carousel" id="testimonialCarousel">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Our wedding was a dream come true! The Royal Banquet team made
+                        every moment magical. The decor was so beautiful, and the service was great!"</p>
+                    <span class="testimonial-author">— Anjali & Rohit Sharma</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"From the initial consultation to the final farewell, everything was
+                        flawless. Our guests still talk about the food and the beautiful ambiance!"</p>
+                    <span class="testimonial-author">— Meera & Vikram Patel</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The Royal Palace venue was stunning. The team understood our
+                        vision perfectly and delivered beyond our expectations. Truly a five-star experience."</p>
+                    <span class="testimonial-author">— Sneha & Arjun Gupta</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"We couldn't have asked for a more perfect venue for our reception. The
+                        attention to detail and the royal ambiance made our day unforgettable."</p>
+                    <span class="testimonial-author">— Kavita & Rajesh Kumar</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container" style="position:relative;z-index:2;">
+            <span class="section-subtitle" style="color:var(--gold);">Begin Your Journey</span>
+            <h2 style="margin-bottom:1rem;">Let's Make Your Celebration Unforgettable</h2>
+            <div class="romantic-divider">
+                <span class="divider-line"
+                    style="background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);"></span>
+                <span class="divider-icon" style="color:var(--gold);">🕊️</span>
+                <span class="divider-line"
+                    style="background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);"></span>
+            </div>
+            <p style="max-width:600px;margin:0 auto 2rem;">Ready to plan your dream event? Our team is here to bring
+                your vision to life with elegance, style, and flawless execution.</p>
+            <a href="#contact" class="btn btn-primary" style="font-size:0.9rem;padding:1rem 2.8rem;">Contact Us
+                Today</a>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section blog-section" id="blog">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">From Our Blog</span>
+                <h2>Latest Wedding Stories & Tips</h2>
+                <div class="romantic-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-icon">📖</span>
+                    <span class="divider-line"></span>
+                </div>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 220'><rect fill='%23d4a5a5' width='400' height='220'/><text x='200' y='115' text-anchor='middle' fill='white' font-size='20' font-family='serif'>♥ Wedding Planning Guide ♥</text></svg>"
+                        alt="Wedding planning guide" class="blog-card-img">
+                    <div class="blog-card-body">
+                        <span class="blog-date">June 19, 2025</span>
+                        <h4>How to Choose the Perfect Banquet Hall for Your Dream Wedding</h4>
+                        <p style="color:var(--text-light);font-size:0.88rem;">Discover essential tips for selecting a
+                            venue that matches your vision, budget, and guest list...</p>
+                        <a href="#"
+                            style="color:var(--gold);font-weight:600;text-decoration:none;font-size:0.85rem;">Read More
+                            →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 220'><rect fill='%23c8a882' width='400' height='220'/><text x='200' y='115' text-anchor='middle' fill='white' font-size='20' font-family='serif'>✦ Engagement Ceremony ✦</text></svg>"
+                        alt="Engagement ceremony" class="blog-card-img">
+                    <div class="blog-card-body">
+                        <span class="blog-date">April 25, 2025</span>
+                        <h4>Top Venue for Engagement Ceremonies in Delhi</h4>
+                        <p style="color:var(--text-light);font-size:0.88rem;">Why The Royal Banquet Palace is the
+                            perfect setting for your engagement celebration...</p>
+                        <a href="#"
+                            style="color:var(--gold);font-weight:600;text-decoration:none;font-size:0.85rem;">Read More
+                            →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 220'><rect fill='%23b76e6e' width='400' height='220'/><text x='200' y='115' text-anchor='middle' fill='white' font-size='20' font-family='serif'>♥ Luxury on Budget ♥</text></svg>"
+                        alt="Budget luxury wedding" class="blog-card-img">
+                    <div class="blog-card-body">
+                        <span class="blog-date">March 12, 2025</span>
+                        <h4>Book a Marriage Hall in Delhi – Luxury Within Your Budget</h4>
+                        <p style="color:var(--text-light);font-size:0.88rem;">Learn how to have a royal wedding
+                            experience without breaking the bank...</p>
+                        <a href="#"
+                            style="color:var(--gold);font-weight:600;text-decoration:none;font-size:0.85rem;">Read More
+                            →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2>Let's Plan Your Celebration</h2>
+                <div class="romantic-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-icon">💝</span>
+                    <span class="divider-line"></span>
+                </div>
+                <p style="color:var(--text-light);max-width:600px;margin:0.8rem auto 0;">We'd love to hear from you.
+                    Reach out and let's start creating magic together.</p>
+            </div>
+            <div class="contact-grid">
+                <div>
+                    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+                        <input type="text" placeholder="Your Full Name *" required>
+                        <input type="email" placeholder="Email Address *" required>
+                        <input type="tel" placeholder="Phone Number *" required>
+                        <select required>
+                            <option value="">Event Type</option>
+                            <option>Wedding & Reception</option>
+                            <option>Pre-Wedding Function</option>
+                            <option>Birthday / Anniversary</option>
+                            <option>Corporate Event</option>
+                            <option>Other Celebration</option>
+                        </select>
+                        <input type="date" placeholder="Preferred Date">
+                        <textarea placeholder="Tell us about your dream event..."></textarea>
+                        <button type="submit" class="btn btn-rose" style="width:100%;border-radius:50px;">Send Enquiry
+                            ✨</button>
+                    </form>
+                </div>
+                <div>
+                    <div class="contact-info-item">
+                        <span class="contact-info-icon">📍</span>
+                        <div>
+                            <strong style="display:block;color:var(--dark);">The Royal Palace</strong>
+                            <span style="color:var(--text-light);font-size:0.9rem;">Pochanpur Colony, Sector 23, Dwarka,
+                                Delhi – 110075</span>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-info-icon">📍</span>
+                        <div>
+                            <strong style="display:block;color:var(--dark);">The Royal Banquet</strong>
+                            <span style="color:var(--text-light);font-size:0.9rem;">Opposite Dwarkadham Apartment, Block
+                                A, Dwarka, Delhi – 110077</span>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-info-icon">📞</span>
+                        <div>
+                            <strong style="display:block;color:var(--dark);">Phone</strong>
+                            <span style="color:var(--text-light);font-size:0.9rem;">+91 097739 80016</span>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-info-icon">✉️</span>
+                        <div>
+                            <strong style="display:block;color:var(--dark);">Email</strong>
+                            <span
+                                style="color:var(--text-light);font-size:0.9rem;">support@theroyalbanquetpalace.com</span>
+                        </div>
+                    </div>
+                    <div
+                        style="background:var(--soft-pink);padding:1.5rem;border-radius:var(--border-radius-lg);margin-top:1rem;text-align:center;border:1px solid rgba(200,168,130,0.2);">
+                        <p
+                            style="font-family:'Great Vibes',cursive;font-size:1.5rem;color:var(--gold);margin-bottom:0.3rem;">
+                            Available 24/7</p>
+                        <p style="color:var(--text-light);font-size:0.9rem;">We're always here to answer your questions
+                            and help you plan the perfect event.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>✦ The Royal Banquet Palace</h4>
+                <p style="font-size:0.9rem;line-height:1.7;">Your destination for timeless celebrations. Creating
+                    unforgettable experiences through exceptional service, luxury ambiance, and meticulous planning.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#ventures">Our Ventures</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <a href="#services">Weddings & Receptions</a>
+                <a href="#services">Pre-Wedding Functions</a>
+                <a href="#services">Birthday Celebrations</a>
+                <a href="#services">Corporate Events</a>
+                <a href="#services">Custom Decor</a>
+                <a href="#services">Catering Services</a>
+                <a href="#services">Venue Coordination</a>
+            </div>
+            <div class="footer-col">
+                <h4>Visit Us</h4>
+                <p style="font-size:0.9rem;line-height:1.7;">📍 Pochanpur Colony, Sector 23, Dwarka, Delhi – 110075</p>
+                <p style="font-size:0.9rem;">📞 +91 097739 80016</p>
+                <p style="font-size:0.9rem;">✉️ support@theroyalbanquetpalace.com</p>
+                <p style="font-size:0.85rem;margin-top:0.8rem;color:var(--gold);">Open: Mon–Sun | 9 AM – 11 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Royal Banquet Palace. All rights reserved. | Crafted with ♥ for your special moments.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
