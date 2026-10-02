@@ -1,4 +1,4 @@
-# ✦ The Royal Banquet Palace
+# The Royal Banquet Palace
 
 A luxurious, beautifully designed frontend web application for **The Royal Banquet Palace** — an elegant wedding and event venue. This project showcases a premium, highly interactive user interface built with vanilla web technologies, emphasizing smooth micro-animations, a romantic color palette, and high performance.
 
