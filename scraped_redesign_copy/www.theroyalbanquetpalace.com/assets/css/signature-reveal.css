@@ -1,0 +1,38 @@
+.signature-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 3rem auto;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.signature-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.signature-svg path {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+}
+
+.signature-container.drawn .signature-svg path {
+    animation: drawSignature 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes drawSignature {
+    0% {
+        stroke-dashoffset: 2000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}

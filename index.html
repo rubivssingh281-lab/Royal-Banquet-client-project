@@ -35,9 +35,21 @@
     <link rel="stylesheet" href="assets/css/mobile-nav.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/accessibility-reduced-motion.css">
+    <link rel="stylesheet" href="assets/css/ambient-background.css">
+    <link rel="stylesheet" href="assets/css/parallax-hero.css">
+    <link rel="stylesheet" href="assets/css/candle-glow.css">
+    <link rel="stylesheet" href="assets/css/unfolding-invite.css">
+    <link rel="stylesheet" href="assets/css/heading-animations.css">
+    <link rel="stylesheet" href="assets/css/carousel-3d.css">
+    <link rel="stylesheet" href="assets/css/shimmer-sweep.css">
+    <link rel="stylesheet" href="assets/css/signature-reveal.css">
+    <link rel="stylesheet" href="assets/css/confetti-burst.css">
+    <link rel="stylesheet" href="assets/css/micro-interactions.css">
 </head>
 
 <body>
+    <!-- Ambient Shifting Background -->
+    <div class="ambient-bg" id="ambientBg"></div>
     <!-- Sparkle Trail Container -->
     <div class="sparkle-trail-container" id="sparkleTrailContainer"></div>
 
@@ -104,6 +116,10 @@
     <section class="section ventures-section" id="ventures">
         <div class="container">
             <div class="section-header">
+                <div class="candle-accent">
+                    <div class="candle-glow"></div>
+                    <div class="candle-flame"></div>
+                </div>
                 <span class="section-subtitle">Our Royal Ventures</span>
                 <h2>Discover Our Majestic Venues</h2>
                 <div class="romantic-divider">
@@ -115,26 +131,34 @@
                     designed to make your special day truly unforgettable.</p>
             </div>
             <div class="ventures-grid">
-                <div class="venture-card"
+                <div class="invite-wrapper"
                     onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-                    <div class="venture-card-img"
-                        style="background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 500%22><defs><linearGradient id=%22g1%22><stop offset=%220%22 stop-color=%22%23c8a882%22/><stop offset=%22100%22 stop-color=%22%238b5e3c%22/></linearGradient></defs><rect fill=%22url(%23g1)%22 width=%22600%22 height=%22500%22/><text x=%22300%22 y=%22250%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22 font-family=%22serif%22>✦ The Royal Banquet ✦</text></svg>');">
-                    </div>
-                    <div class="venture-card-overlay">
-                        <h3>The Royal Banquet</h3>
-                        <p style="margin-bottom:0.6rem;">Intimate elegance for up to 500 guests</p>
-                        <span class="venture-link">Explore Venue →</span>
+                    <div class="invite-envelope">
+                        <div class="envelope-back"></div>
+                        <div class="envelope-flap-left"></div>
+                        <div class="envelope-flap-right"></div>
+                        <div class="invite-content-card">
+                            <h3 style="margin-bottom:1rem;color:var(--burgundy);text-align:center;">The Royal Banquet
+                            </h3>
+                            <p style="margin-bottom:1.5rem;text-align:center;color:var(--text);">Intimate elegance for
+                                up to 500 guests. A majestic setting for your special day.</p>
+                            <span class="venture-link btn btn-outline">Explore Venue</span>
+                        </div>
                     </div>
                 </div>
-                <div class="venture-card"
+                <div class="invite-wrapper"
                     onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-                    <div class="venture-card-img"
-                        style="background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 500%22><defs><linearGradient id=%22g2%22><stop offset=%220%22 stop-color=%22%23b76e6e%22/><stop offset=%22100%22 stop-color=%22%235c2a2a%22/></linearGradient></defs><rect fill=%22url(%23g2)%22 width=%22600%22 height=%22500%22/><text x=%22300%22 y=%22250%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22 font-family=%22serif%22>✦ The Royal Palace ✦</text></svg>');">
-                    </div>
-                    <div class="venture-card-overlay">
-                        <h3>The Royal Palace</h3>
-                        <p style="margin-bottom:0.6rem;">Grand celebrations for up to 1200 guests</p>
-                        <span class="venture-link">Explore Venue →</span>
+                    <div class="invite-envelope">
+                        <div class="envelope-back"></div>
+                        <div class="envelope-flap-left"></div>
+                        <div class="envelope-flap-right"></div>
+                        <div class="invite-content-card">
+                            <h3 style="margin-bottom:1rem;color:var(--burgundy);text-align:center;">The Royal Palace
+                            </h3>
+                            <p style="margin-bottom:1.5rem;text-align:center;color:var(--text);">Grand celebrations for
+                                up to 1200 guests. Palatial grandeur awaits you.</p>
+                            <span class="venture-link btn btn-outline">Explore Venue</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -150,6 +174,10 @@
                         alt="Royal Banquet Palace interior" style="width:100%;border-radius:var(--border-radius-lg);">
                 </div>
                 <div class="about-text">
+                    <div class="candle-accent" style="margin: 0;">
+                        <div class="candle-glow"></div>
+                        <div class="candle-flame"></div>
+                    </div>
                     <span class="section-subtitle" style="text-align:left;">Our Story</span>
                     <h2 style="margin-bottom:1rem;">Crafting Timeless Celebrations Since 2010</h2>
                     <div class="romantic-divider" style="justify-content:flex-start;">
@@ -182,6 +210,12 @@
                             <span class="stat-label">Team Members</span>
                         </div>
                     </div>
+                    <div class="signature-container" id="signatureReveal">
+                        <svg class="signature-svg" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M 50 80 Q 70 50, 90 70 T 110 50 T 130 60 Q 150 20, 160 50 T 180 70 Q 200 10, 220 60 T 250 50 Q 280 20, 300 70 Q 320 40, 350 80" />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
@@ -191,6 +225,10 @@
     <section class="section services-section" id="services">
         <div class="container">
             <div class="section-header">
+                <div class="candle-accent">
+                    <div class="candle-glow"></div>
+                    <div class="candle-flame"></div>
+                </div>
                 <span class="section-subtitle">What We Offer</span>
                 <h2>Our Royal Services</h2>
                 <div class="romantic-divider">
@@ -253,6 +291,10 @@
     <section class="section portfolio-section" id="portfolio">
         <div class="container">
             <div class="section-header">
+                <div class="candle-accent">
+                    <div class="candle-glow"></div>
+                    <div class="candle-flame"></div>
+                </div>
                 <span class="section-subtitle">Our Gallery</span>
                 <h2>Moments We've Created</h2>
                 <div class="romantic-divider">
@@ -277,6 +319,10 @@
     <section class="section team-section" id="team">
         <div class="container">
             <div class="section-header">
+                <div class="candle-accent">
+                    <div class="candle-glow"></div>
+                    <div class="candle-flame"></div>
+                </div>
                 <span class="section-subtitle">Meet Our Family</span>
                 <h2>The People Behind the Magic</h2>
                 <div class="romantic-divider">
@@ -320,6 +366,10 @@
     <section class="section testimonials-section">
         <div class="container">
             <div class="section-header">
+                <div class="candle-accent">
+                    <div class="candle-glow"></div>
+                    <div class="candle-flame"></div>
+                </div>
                 <span class="section-subtitle">Love Letters</span>
                 <h2>What Our Couples Say</h2>
                 <div class="romantic-divider">
@@ -328,30 +378,33 @@
                     <span class="divider-line"></span>
                 </div>
             </div>
-            <div class="testimonial-carousel" id="testimonialCarousel">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Our wedding was a dream come true! The Royal Banquet team made
-                        every moment magical. The decor was so beautiful, and the service was great!"</p>
-                    <span class="testimonial-author">— Anjali & Rohit Sharma</span>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"From the initial consultation to the final farewell, everything was
-                        flawless. Our guests still talk about the food and the beautiful ambiance!"</p>
-                    <span class="testimonial-author">— Meera & Vikram Patel</span>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"The Royal Palace venue was stunning. The team understood our
-                        vision perfectly and delivered beyond our expectations. Truly a five-star experience."</p>
-                    <span class="testimonial-author">— Sneha & Arjun Gupta</span>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"We couldn't have asked for a more perfect venue for our reception. The
-                        attention to detail and the royal ambiance made our day unforgettable."</p>
-                    <span class="testimonial-author">— Kavita & Rajesh Kumar</span>
+            <div class="carousel-3d-container">
+                <div class="testimonial-carousel" id="testimonialCarousel" style="display:none;">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Our wedding was a dream come true! The Royal Banquet team made
+                            every moment magical. The decor was so beautiful, and the service was great!"</p>
+                        <span class="testimonial-author">— Anjali & Rohit Sharma</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"From the initial consultation to the final farewell, everything was
+                            flawless. Our guests still talk about the food and the beautiful ambiance!"</p>
+                        <span class="testimonial-author">— Meera & Vikram Patel</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"The Royal Palace venue was stunning. The team understood our
+                            vision perfectly and delivered beyond our expectations. Truly a five-star experience."</p>
+                        <span class="testimonial-author">— Sneha & Arjun Gupta</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"We couldn't have asked for a more perfect venue for our reception.
+                            The
+                            attention to detail and the royal ambiance made our day unforgettable."</p>
+                        <span class="testimonial-author">— Kavita & Rajesh Kumar</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -360,6 +413,10 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container" style="position:relative;z-index:2;">
+            <div class="candle-accent">
+                <div class="candle-glow"></div>
+                <div class="candle-flame"></div>
+            </div>
             <span class="section-subtitle" style="color:var(--gold);">Begin Your Journey</span>
             <h2 style="margin-bottom:1rem;">Let's Make Your Celebration Unforgettable</h2>
             <div class="romantic-divider">
@@ -380,6 +437,10 @@
     <section class="section blog-section" id="blog">
         <div class="container">
             <div class="section-header">
+                <div class="candle-accent">
+                    <div class="candle-glow"></div>
+                    <div class="candle-flame"></div>
+                </div>
                 <span class="section-subtitle">From Our Blog</span>
                 <h2>Latest Wedding Stories & Tips</h2>
                 <div class="romantic-divider">
@@ -436,6 +497,10 @@
     <section class="section contact-section" id="contact">
         <div class="container">
             <div class="section-header">
+                <div class="candle-accent">
+                    <div class="candle-glow"></div>
+                    <div class="candle-flame"></div>
+                </div>
                 <span class="section-subtitle">Get In Touch</span>
                 <h2>Let's Plan Your Celebration</h2>
                 <div class="romantic-divider">
@@ -557,6 +622,8 @@
         </div>
     </footer>
 
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 

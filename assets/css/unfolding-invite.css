@@ -1,0 +1,81 @@
+.invite-wrapper {
+    perspective: 1500px;
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 500px;
+}
+
+.invite-envelope {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    transform-style: preserve-3d;
+    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.invite-wrapper.unfolded .invite-envelope {
+    transform: translateY(50px) rotateX(10deg);
+}
+
+.envelope-flap-left, .envelope-flap-right {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--gold), var(--rose-gold));
+    z-index: 3;
+    transform-origin: left center;
+    transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    backface-visibility: hidden;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+
+.envelope-flap-right {
+    right: 0;
+    transform-origin: right center;
+    left: auto;
+}
+
+.invite-wrapper.unfolded .envelope-flap-left {
+    transform: rotateY(-170deg);
+}
+.invite-wrapper.unfolded .envelope-flap-right {
+    transform: rotateY(170deg);
+}
+
+.invite-content-card {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    background: var(--white);
+    border: 2px solid var(--gold);
+    z-index: 2;
+    transform: translateY(50px) scale(0.9);
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.25, 1, 0.5, 1) 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-shadow: var(--shadow-medium);
+}
+
+.invite-wrapper.unfolded .invite-content-card {
+    transform: translateY(-20px) scale(1.05);
+    opacity: 1;
+    z-index: 4;
+}
+
+.envelope-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--deep-rose);
+    z-index: 1;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.2);
+}

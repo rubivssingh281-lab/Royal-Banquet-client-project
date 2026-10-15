@@ -1,0 +1,20 @@
+/* ─── ROMANTIC SPARKLE TRAIL ─────────────────────── */
+        .sparkle-trail {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            font-size: 1rem;
+            animation: sparkleFade 1.2s ease-out forwards;
+        }
+
+        @keyframes sparkleFade {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(var(--dx), var(--dy)) scale(0) rotate(180deg);
+            }
+        }

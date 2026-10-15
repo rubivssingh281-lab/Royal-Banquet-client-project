@@ -1,0 +1,67 @@
+:root {
+            --rose-gold: #c8a882;
+            --rose: #d4a5a5;
+            --deep-rose: #b76e6e;
+            --burgundy: #8b3a3a;
+            --cream: #fdf8f4;
+            --soft-pink: #f9f0ed;
+            --gold: #c9a96e;
+            --dark: #2c1f1a;
+            --text: #4a3a33;
+            --text-light: #7a6a63;
+            --white: #ffffff;
+            --shadow-soft: 0 4px 20px rgba(44, 31, 26, 0.08);
+            --shadow-medium: 0 8px 40px rgba(44, 31, 26, 0.12);
+            --shadow-gold: 0 8px 32px rgba(201, 169, 110, 0.25);
+            --shadow-rose: 0 8px 32px rgba(183, 110, 110, 0.3);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-slow: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --glow-rose: 0 0 30px rgba(212, 165, 165, 0.5);
+            --glow-gold: 0 0 30px rgba(201, 169, 110, 0.5);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Raleway', 'Montserrat', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            cursor: default;
+        }
+
+        /* Lenis base styles */
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-smooth iframe {
+            pointer-events: none;
+        }

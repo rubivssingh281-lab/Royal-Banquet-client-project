@@ -1,0 +1,78 @@
+/* ─── CONTACT SECTION ─────────────────────── */
+        .contact-section {
+            background: var(--white);
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--rose-gold), var(--gold), transparent);
+            opacity: 0.5;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid #e8ddd5;
+            border-radius: 50px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: var(--cream);
+            color: var(--text);
+            margin-bottom: 1rem;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            border-radius: var(--border-radius);
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 6px rgba(201, 169, 110, 0.08), 0 0 20px rgba(201, 169, 110, 0.1);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+        }
+
+        .contact-info-item:hover {
+            background: rgba(249, 240, 237, 0.6);
+        }
+
+        .contact-info-icon {
+            font-size: 1.4rem;
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 3px;
+            transition: var(--transition);
+        }
+
+        .contact-info-item:hover .contact-info-icon {
+            transform: scale(1.2);
+            color: var(--deep-rose);
+        }

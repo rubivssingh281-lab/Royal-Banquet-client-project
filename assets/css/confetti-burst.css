@@ -1,0 +1,59 @@
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background: var(--gold);
+    opacity: 0;
+    animation: confettiFall 3s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+.confetti-piece.petal {
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translate(0, 100vh) rotate(0deg);
+        opacity: 1;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--end-x, 100px), -20vh) rotate(var(--rot, 360deg));
+        opacity: 0;
+    }
+}
+
+.confetti-piece.burst {
+    animation: confettiBurst 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes confettiBurst {
+    0% {
+        transform: translate(var(--start-x, 50vw), var(--start-y, 50vh)) scale(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--end-x, 50vw), var(--end-y, 100vh)) scale(1.5) rotate(var(--rot, 720deg));
+        opacity: 0;
+    }
+}

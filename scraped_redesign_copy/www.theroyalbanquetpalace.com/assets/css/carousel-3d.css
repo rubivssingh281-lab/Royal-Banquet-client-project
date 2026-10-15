@@ -1,0 +1,63 @@
+.carousel-3d-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    perspective: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel-3d-track {
+    position: relative;
+    width: 300px;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-3d-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--gold);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-medium);
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform-origin: center center -300px;
+    transition: opacity 0.5s ease;
+    will-change: transform;
+}
+
+.carousel-3d-card .testimonial-stars {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(201, 169, 110, 0.4);
+}
+
+.carousel-3d-card p {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.carousel-3d-card .testimonial-author {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--burgundy);
+    font-size: 0.95rem;
+}
+
+/* Fallback for reduced motion handled in JS or reduced-motion css */

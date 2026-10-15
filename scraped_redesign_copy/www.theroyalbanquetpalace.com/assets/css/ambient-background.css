@@ -1,0 +1,24 @@
+.ambient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 50%, #f7ebde 100%);
+    background-size: 400% 400%;
+    animation: ambientShift 30s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes ambientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

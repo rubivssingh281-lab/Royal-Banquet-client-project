@@ -1,0 +1,71 @@
+.candle-accent {
+    width: 12px;
+    height: 30px;
+    background: linear-gradient(to bottom, #fff 0%, #f4e4c1 40%, #e5c388 100%);
+    border-radius: 6px;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+    will-change: opacity, transform;
+}
+
+.candle-accent.lit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.candle-flame {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 16px;
+    background: radial-gradient(ellipse at bottom, #fff 10%, #f9d77f 40%, #ff8c00 80%, transparent 100%);
+    border-radius: 50% 50% 20% 20%;
+    filter: blur(1px);
+    animation: flicker 3s infinite alternate;
+    transform-origin: bottom center;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.8s;
+}
+
+.candle-accent.lit .candle-flame {
+    opacity: 1;
+}
+
+.candle-glow {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, rgba(249, 215, 127, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulseGlow 4s infinite alternate;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.8s;
+}
+
+.candle-accent.lit .candle-glow {
+    opacity: 1;
+}
+
+@keyframes flicker {
+    0% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+    20% { transform: translateX(-50%) scale(1.1) rotate(1deg); }
+    40% { transform: translateX(-50%) scale(0.9) rotate(-1deg); }
+    60% { transform: translateX(-50%) scale(1.05) rotate(2deg); }
+    80% { transform: translateX(-50%) scale(0.95) rotate(-2deg); }
+    100% { transform: translateX(-50%) scale(1) rotate(1deg); }
+}
+
+@keyframes pulseGlow {
+    0% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+    100% { transform: translateX(-50%) scale(1.5); opacity: 0.8; }
+}

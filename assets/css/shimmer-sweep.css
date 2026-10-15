@@ -1,0 +1,29 @@
+/* Apply shimmer sweep to buttons and venture cards */
+.btn, .venture-link, .invite-content-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.btn::after, .venture-link::after, .invite-content-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.4) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: rotate(30deg);
+    transition: left 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.btn:hover::after, .venture-link:hover::after, .invite-content-card:hover::after {
+    left: 200%;
+}

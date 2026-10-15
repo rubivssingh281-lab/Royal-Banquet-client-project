@@ -1,0 +1,88 @@
+/* ─── SERVICES SECTION ─────────────────────── */
+        .services-section {
+            background: linear-gradient(180deg, #fefbf8 0%, var(--cream) 30%, #fdf7f2 70%, #fefaf6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.2rem 1.8rem;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-slow);
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--rose-gold), var(--gold), var(--deep-rose));
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium), 0 0 35px rgba(200, 168, 130, 0.2);
+            border-color: var(--rose-gold);
+        }
+
+        .service-icon {
+            font-size: 2.6rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            color: var(--deep-rose);
+            transform: scale(1.2) rotate(-8deg);
+            animation: iconWobble 0.6s ease;
+        }
+
+        @keyframes iconWobble {
+
+            0%,
+            100% {
+                transform: scale(1.2) rotate(0deg);
+            }
+
+            25% {
+                transform: scale(1.25) rotate(-10deg);
+            }
+
+            75% {
+                transform: scale(1.15) rotate(8deg);
+            }
+        }
+
+        .service-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }

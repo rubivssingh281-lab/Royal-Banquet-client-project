@@ -1,0 +1,66 @@
+/* Micro-interactions for buttons, links, and icons */
+a, button, .social-icons i {
+    transition: var(--transition);
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+.btn-primary:hover {
+    box-shadow: var(--shadow-gold), 0 0 20px rgba(201,169,110,0.4);
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: var(--white);
+    box-shadow: var(--shadow-gold);
+}
+
+.btn-rose:hover {
+    box-shadow: var(--shadow-rose), 0 0 20px rgba(183,110,110,0.4);
+}
+
+.nav-links li a {
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease, left 0.3s ease;
+    box-shadow: 0 0 8px var(--gold);
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.service-icon, .contact-info-icon, .divider-icon {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), text-shadow 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.2) rotate(10deg);
+    text-shadow: 0 0 15px rgba(201,169,110,0.6);
+}
+
+.footer-social a:hover {
+    transform: translateY(-5px);
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(201,169,110,0.5);
+}
