@@ -1,4 +1,4 @@
-# ✦ The Royal Banquet Palace
+# The Royal Banquet Palace
 
 A luxurious, beautifully designed frontend web application for **The Royal Banquet Palace** — an elegant wedding and event venue. This project showcases a premium, highly interactive user interface built with vanilla web technologies, emphasizing smooth micro-animations, a romantic color palette, and high performance.
 
@@ -70,11 +70,11 @@ Since the project uses vanilla HTML, CSS, and JavaScript, no complicated build t
 
 ##  Design System
 
-- **Primary Colors**: Gold (`#c9a96e`), Rose Gold (`#c8a882`), Deep Rose (`#b76e6e`).
+- **Primary Colors**: Gold, Rose Gold, Deep Rose.
 - **Typography**: A mix of serif (for elegance and headings) and clean sans-serif (for readability and body text).
 - **Aesthetics**: Glassmorphism, soft glowing shadows, CSS gradients, and seamless hover transitions. 
 
 ##  License
 
 &copy; 2026 The Royal Banquet Palace. All rights reserved. 
-Crafted with ♥ for special moments.
+Crafted with for special moments.
