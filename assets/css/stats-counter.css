@@ -1,57 +1,65 @@
 /* ─── STATS COUNTER ─────────────────────── */
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-        }
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1.2rem;
+    margin-top: 2.2rem;
+}
 
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--soft-pink);
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
+.stat-item {
+    text-align: center;
+    padding: 1.4rem 1rem;
+    background: var(--pearl-white);
+    border: 1px solid rgba(197, 160, 89, 0.22);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
 
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(201, 169, 110, 0.1) 0%, transparent 60%);
-            opacity: 0;
-            transition: var(--transition);
-        }
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, transparent 60%);
+    opacity: 0;
+    transition: var(--transition);
+}
 
-        .stat-item:hover::before {
-            opacity: 1;
-        }
+.stat-item:hover::before {
+    opacity: 1;
+}
 
-        .stat-item:hover {
-            box-shadow: var(--shadow-soft), 0 0 25px rgba(200, 168, 130, 0.2);
-            transform: translateY(-5px);
-        }
+.stat-item:hover {
+    box-shadow: 0 8px 25px rgba(197, 160, 89, 0.18);
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    background: #ffffff;
+}
 
-        .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--gold);
-            display: block;
-            position: relative;
-            z-index: 1;
-        }
+.stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+    display: block;
+    line-height: 1.1;
+    position: relative;
+    z-index: 1;
+}
 
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            position: relative;
-            z-index: 1;
-        }
+.stat-label {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--ink-muted);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    margin-top: 0.3rem;
+    display: block;
+}
