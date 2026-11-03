@@ -1,42 +1,38 @@
-/* ─── CTA SECTION ─────────────────────── */
-        .cta-section {
-            background: linear-gradient(135deg, #3d1a1a 0%, var(--burgundy) 25%, #5c2a2a 50%, #4a2020 75%, #3d1a1a 100%);
-            text-align: center;
-            padding: 5rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
+/* ─── CTA SECTION (WEDDING DRESS WHITE THEME) ─────────────────────── */
+.cta-section {
+    position: relative;
+    text-align: center;
+    padding: 7rem 2rem;
+    overflow: hidden;
+    border-top: 1px solid rgba(197, 160, 89, 0.22);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.22);
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(252, 249, 244, 0.96) 50%, rgba(246, 239, 227, 0.95) 100%),
+        url('../../scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/095a4e20-4817-4c96-bb63-df41e1f6722f-1-1.jpg') center center / cover no-repeat;
+    background-attachment: fixed;
+}
 
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><circle cx="50" cy="50" r="120" fill="%23ffffff06"/><circle cx="350" cy="300" r="150" fill="%23ffffff04"/></svg>'),
-                radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
-            pointer-events: none;
-            animation: ctaShimmer 5s ease-in-out infinite;
-        }
+.cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(197, 160, 89, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
 
-        @keyframes ctaShimmer {
+.cta-section h2 {
+    color: var(--ink-charcoal);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-family: 'Cormorant Garamond', 'Cinzel', serif;
+    margin-bottom: 1rem;
+    position: relative;
+}
 
-            0%,
-            100% {
-                opacity: 0.7;
-            }
-
-            50% {
-                opacity: 1;
-            }
-        }
-
-        .cta-section h2 {
-            color: var(--white);
-            position: relative;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-        }
-
-        .cta-section p {
-            color: rgba(255, 255, 255, 0.85);
-            position: relative;
-        }
+.cta-section p {
+    color: var(--ink-body);
+    font-size: 1.08rem;
+    max-width: 650px;
+    margin: 0 auto 2.2rem;
+    line-height: 1.85;
+    position: relative;
+}
