@@ -1,69 +1,77 @@
-/* ─── TESTIMONIALS ─────────────────────── */
-        .testimonials-section {
-            background: linear-gradient(180deg, #fef9f6 0%, var(--soft-pink) 40%, #fef7f3 70%, #fdf4ef 100%);
-        }
+/* ─── TESTIMONIALS SECTION ─────────────────────── */
+.testimonials-section {
+    background: linear-gradient(180deg, var(--pearl-white) 0%, #f8f5ee 50%, var(--pearl-white) 100%);
+    position: relative;
+    padding: 6rem 2rem;
+    overflow: hidden;
+}
 
-        .testimonial-carousel {
-            display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            padding: 1rem 0.5rem;
-            -webkit-overflow-scrolling: touch;
-        }
+.testimonial-carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 1rem 0.5rem;
+    -webkit-overflow-scrolling: touch;
+}
 
-        .testimonial-carousel::-webkit-scrollbar {
-            display: none;
-        }
+.testimonial-carousel::-webkit-scrollbar {
+    display: none;
+}
 
-        .testimonial-card {
-            min-width: 340px;
-            flex-shrink: 0;
-            scroll-snap-align: start;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-soft);
-            text-align: center;
-            transition: var(--transition-slow);
-            position: relative;
-        }
+.testimonial-card {
+    min-width: 340px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    background: var(--wedding-white);
+    padding: 2.5rem 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(197, 160, 89, 0.08);
+    border: 1px solid rgba(197, 160, 89, 0.22);
+    text-align: center;
+    transition: var(--transition-slow);
+    position: relative;
+}
 
-        .testimonial-card::before {
-            content: '❝';
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            font-size: 3rem;
-            color: rgba(200, 168, 130, 0.2);
-            font-family: 'Georgia', serif;
-            line-height: 1;
-            pointer-events: none;
-        }
+.testimonial-card::before {
+    content: '❝';
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 3rem;
+    color: rgba(197, 160, 89, 0.2);
+    font-family: 'Georgia', serif;
+    line-height: 1;
+    pointer-events: none;
+}
 
-        .testimonial-card:hover {
-            box-shadow: var(--shadow-medium), 0 0 30px rgba(200, 168, 130, 0.2);
-            transform: translateY(-4px);
-        }
+.testimonial-card:hover {
+    box-shadow: 0 12px 35px rgba(197, 160, 89, 0.2);
+    transform: translateY(-4px);
+    border-color: var(--gold);
+}
 
-        .testimonial-stars {
-            color: var(--gold);
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-            letter-spacing: 2px;
-        }
+.testimonial-stars {
+    color: var(--gold);
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 2px;
+}
 
-        .testimonial-text {
-            font-style: italic;
-            color: var(--text);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
+.testimonial-text {
+    font-style: italic;
+    color: var(--ink-body);
+    font-size: 1rem;
+    line-height: 1.8;
+}
 
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--dark);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-        }
+.testimonial-author {
+    display: block;
+    margin-top: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.86rem;
+    color: var(--gold-dark);
+    letter-spacing: 0.8px;
+}

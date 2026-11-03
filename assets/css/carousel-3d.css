@@ -1,7 +1,7 @@
 .carousel-3d-container {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 420px;
     perspective: 1200px;
     display: flex;
     justify-content: center;
@@ -11,7 +11,7 @@
 
 .carousel-3d-track {
     position: relative;
-    width: 300px;
+    width: 320px;
     height: 100%;
     transform-style: preserve-3d;
     transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
@@ -21,34 +21,35 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid var(--gold);
+    background: var(--wedding-white);
+    border: 1px solid rgba(197, 160, 89, 0.35);
     border-radius: var(--border-radius-lg);
     padding: 2.5rem 2rem;
-    box-shadow: var(--shadow-medium);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(197, 160, 89, 0.12);
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    transform-origin: center center -300px;
+    transform-origin: center center -320px;
     transition: opacity 0.5s ease;
     will-change: transform;
 }
 
 .carousel-3d-card .testimonial-stars {
     color: var(--gold);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(201, 169, 110, 0.4);
+    letter-spacing: 2px;
 }
 
 .carousel-3d-card p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-style: italic;
-    color: var(--text);
+    color: var(--ink-body);
     margin-bottom: 1.5rem;
+    line-height: 1.75;
     position: relative;
     z-index: 2;
 }
@@ -56,8 +57,7 @@
 .carousel-3d-card .testimonial-author {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    color: var(--burgundy);
-    font-size: 0.95rem;
+    color: var(--gold-dark);
+    font-size: 0.92rem;
+    letter-spacing: 0.8px;
 }
-
-/* Fallback for reduced motion handled in JS or reduced-motion css */
