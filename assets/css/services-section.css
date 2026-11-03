@@ -1,88 +1,137 @@
-/* ─── SERVICES SECTION ─────────────────────── */
-        .services-section {
-            background: linear-gradient(180deg, #fefbf8 0%, var(--cream) 30%, #fdf7f2 70%, #fefaf6 100%);
-            position: relative;
-            overflow: hidden;
-        }
+/* ─── SERVICES & EXPERIENCES SECTION ─────────────────────── */
+.services-section {
+    background: linear-gradient(180deg, var(--pearl-white) 0%, #f8f5ee 50%, var(--pearl-white) 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 2rem;
+}
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.8rem;
-        }
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .service-card {
-            background: var(--white);
-            padding: 2.2rem 1.8rem;
-            border-radius: var(--border-radius-lg);
-            text-align: center;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition-slow);
-            cursor: pointer;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
+.service-card {
+    background: var(--wedding-white);
+    padding: 2.5rem 2rem;
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(197, 160, 89, 0.06);
+    transition: var(--transition-slow);
+    cursor: pointer;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    position: relative;
+    overflow: hidden;
+}
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--rose-gold), var(--gold), var(--deep-rose));
-            transform: scaleX(0);
-            transition: transform 0.5s ease;
-        }
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
 
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
+.service-card:hover::before {
+    transform: scaleX(1);
+}
 
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-medium), 0 0 35px rgba(200, 168, 130, 0.2);
-            border-color: var(--rose-gold);
-        }
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(197, 160, 89, 0.18), 0 4px 12px rgba(0, 0, 0, 0.04);
+    border-color: var(--gold);
+}
 
-        .service-icon {
-            font-size: 2.6rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-            display: block;
-            transition: var(--transition);
-        }
+.service-icon {
+    font-size: 2.4rem;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
 
-        .service-card:hover .service-icon {
-            color: var(--deep-rose);
-            transform: scale(1.2) rotate(-8deg);
-            animation: iconWobble 0.6s ease;
-        }
+.service-card:hover .service-icon {
+    transform: scale(1.12);
+}
 
-        @keyframes iconWobble {
+.service-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+    color: var(--ink-charcoal);
+    font-family: 'Cormorant Garamond', 'Cinzel', serif;
+    font-weight: 600;
+}
 
-            0%,
-            100% {
-                transform: scale(1.2) rotate(0deg);
-            }
+.service-card p {
+    font-size: 0.92rem;
+    color: var(--ink-body);
+    line-height: 1.7;
+}
 
-            25% {
-                transform: scale(1.25) rotate(-10deg);
-            }
+/* Services Palatial Showcase Banner */
+.services-feature-banner {
+    max-width: 1200px;
+    margin: 3.5rem auto 0;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba(197, 160, 89, 0.28);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    background: var(--wedding-white);
+}
 
-            75% {
-                transform: scale(1.15) rotate(8deg);
-            }
-        }
+@media (max-width: 900px) {
+    .services-feature-banner {
+        grid-template-columns: 1fr;
+    }
+}
 
-        .service-card h4 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
+.services-feature-img-wrap {
+    position: relative;
+    min-height: 340px;
+    overflow: hidden;
+}
 
-        .service-card p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
+.services-feature-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.services-feature-banner:hover .services-feature-img {
+    transform: scale(1.03);
+}
+
+.services-feature-text {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffffff 0%, #fcfbf9 100%);
+}
+
+.services-feature-text h3 {
+    font-size: 1.85rem;
+    color: var(--ink-charcoal);
+    font-family: 'Cormorant Garamond', 'Cinzel', serif;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+}
+
+.services-feature-text p {
+    color: var(--ink-body);
+    font-size: 0.96rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
