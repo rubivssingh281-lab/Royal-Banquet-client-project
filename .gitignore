@@ -10,3 +10,7 @@ npm-debug.log*
 Thumbs.db
 .vscode/
 .idea/
+
+# Automation scripts
+make_15_commits.sh
+make_15_commits.py
