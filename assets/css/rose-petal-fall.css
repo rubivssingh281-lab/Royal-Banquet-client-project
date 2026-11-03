@@ -1,118 +1,85 @@
-/* ─── ROSE PETAL FALL ─────────────────────── */
-        .petal-container {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9998;
-            overflow: hidden;
-        }
+/* ─── BRIDAL PETAL AMBIANCE ─────────────────────── */
+.petal-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    overflow: hidden;
+}
 
-        .petal {
-            position: absolute;
-            top: -60px;
-            font-size: 1.4rem;
-            animation: petalFall linear infinite;
-            opacity: 0.7;
-            pointer-events: none;
-            filter: blur(0.5px);
-        }
+.petal {
+    position: absolute;
+    top: -60px;
+    font-size: 1.2rem;
+    animation: petalFall linear infinite;
+    opacity: 0.65;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 5px rgba(197, 160, 89, 0.2));
+}
 
-        @keyframes petalFall {
-            0% {
-                transform: translateY(-5vh) translateX(0) rotate(0deg) scale(0.6);
-                opacity: 0;
-            }
+@keyframes petalFall {
+    0% {
+        transform: translateY(-5vh) translateX(0) rotate(0deg) scale(0.6);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.75;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    85% {
+        opacity: 0.65;
+    }
+    100% {
+        transform: translateY(108vh) translateX(var(--drift)) rotate(var(--spin)) scale(1.05);
+        opacity: 0;
+    }
+}
 
-            8% {
-                opacity: 0.8;
-            }
+/* ─── EDITORIAL TYPOGRAPHY ─────────────────────── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cormorant Garamond', 'Cinzel', serif;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--ink-charcoal);
+    letter-spacing: 0.5px;
+}
 
-            40% {
-                opacity: 0.5;
-            }
+h1 {
+    font-size: clamp(2.5rem, 5.5vw, 4.4rem);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--ink-charcoal);
+    text-shadow: 0 2px 20px rgba(255, 255, 255, 0.8);
+}
 
-            70% {
-                opacity: 0.7;
-            }
+h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    letter-spacing: 0.5px;
+    color: var(--ink-charcoal);
+}
 
-            90% {
-                opacity: 0.3;
-            }
+h3 {
+    font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+    color: var(--ink-charcoal);
+}
 
-            100% {
-                transform: translateY(108vh) translateX(var(--drift)) rotate(var(--spin)) scale(1.1);
-                opacity: 0;
-            }
-        }
+.script-font {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+}
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Cormorant Garamond', 'Great Vibes', serif;
-            font-weight: 500;
-            line-height: 1.25;
-            color: var(--dark);
-        }
-
-        h1 {
-            font-size: clamp(2.8rem, 6vw, 5rem);
-            font-weight: 600;
-            letter-spacing: 2px;
-            background: linear-gradient(180deg, #ffffff 0%, #f0d9c8 40%, #e8c8a8 70%, #ffffff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 60px rgba(255, 220, 200, 0.5), 0 0 120px rgba(200, 160, 130, 0.3);
-            animation: shimmerText 4s ease-in-out infinite;
-        }
-
-        @keyframes shimmerText {
-
-            0%,
-            100% {
-                text-shadow: 0 0 60px rgba(255, 220, 200, 0.5), 0 0 120px rgba(200, 160, 130, 0.3);
-            }
-
-            50% {
-                text-shadow: 0 0 80px rgba(255, 220, 200, 0.8), 0 0 160px rgba(200, 160, 130, 0.5), 0 0 200px rgba(255, 200, 160, 0.3);
-            }
-        }
-
-        h2 {
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            letter-spacing: 1px;
-        }
-
-        h3 {
-            font-size: clamp(1.4rem, 3vw, 2rem);
-        }
-
-        .script-font {
-            font-family: 'Great Vibes', cursive;
-            font-weight: 400;
-        }
-
-        .section-subtitle {
-            font-family: 'Great Vibes', cursive;
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            color: var(--rose-gold);
-            display: block;
-            margin-bottom: 0.3rem;
-            letter-spacing: 1px;
-            animation: subtitleGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes subtitleGlow {
-
-            0%,
-            100% {
-                text-shadow: 0 0 8px rgba(200, 168, 130, 0.3);
-            }
-
-            50% {
-                text-shadow: 0 0 20px rgba(200, 168, 130, 0.7), 0 0 40px rgba(200, 168, 130, 0.3);
-            }
-        }
+.section-subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.4rem;
+    letter-spacing: 1px;
+}

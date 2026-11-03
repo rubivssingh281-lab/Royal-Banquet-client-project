@@ -1,80 +1,67 @@
 # The Royal Banquet Palace
 
-A luxurious, beautifully designed frontend web application for **The Royal Banquet Palace** — an elegant wedding and event venue. This project showcases a premium, highly interactive user interface built with vanilla web technologies, emphasizing smooth micro-animations, a romantic color palette, and high performance.
+A luxury editorial web application for **The Royal Banquet Palace & Grand Ballrooms** in Dwarka, Delhi. Redesigned with a **Wedding Dress White** aesthetic and an emphasis on **multi-generational family celebrations**, honoring sacred traditions, and world-class hospitality.
 
-##  Features
+---
 
-- **Dynamic Hero Section**: Engaging entrance with a slow background pulse and elegant floating heart animations.
-- **Micro-Animations & Effects**: 
-  - Mouse-following sparkle trails (desktop).
-  - Floating rose petals falling gently across the screen.
-  - Number counters that animate dynamically upon scrolling into view.
-- **Modern & Responsive Layout**: Fully responsive design with a mobile-friendly slide-out hamburger menu.
-- **Modular Architecture**: Clean, componentized CSS logic distributing styles across 22 specific files for excellent maintainability.
-- **Smooth Navigation**: Sticky, glassmorphic navigation bar that changes transparency on scroll, paired with smooth anchor scrolling for all page sections.
-- **Interactive UI Components**: Beautifully styled venture cards, service icons with hover effects, an automatic testimonial carousel, and an elegant contact form.
+## 🕊️ Design Philosophy & Features
 
-##  Folder Structure
+### 1. Wedding Dress White & Editorial Palette
+- **Layered Bridal Neutrals**: Pure Silk White (`#ffffff`), Lustrous Pearl White (`#fcfbf9`), Alabaster Cream (`#f8f6f0`), and Chantilly Lace borders.
+- **Accents**: Muted Royal Champagne Gold (`#c5a059`), Soft Golden Shimmer (`#e5d2ac`), and Antique Brass (`#997836`).
+- **High-Contrast Editorial Typography**: Obsidian/Calligraphy Charcoal (`#1a1816`) paired with elegant serif headings (*Cormorant Garamond* & *Cinzel*) and clean sans-serif body text (*Montserrat* & *Raleway*).
 
-The project is structured professionally for easy maintenance and scaling without the overhead of heavy JavaScript frameworks:
+### 2. Multi-Generational Family Hospitality
+- **Elder-Friendly Comfort**: 100% step-free transitions, elevator access, cushioned seating, and calm conversation lounges for beloved grandparents.
+- **Honoring Sacred Customs**: Dedicated spaces and logistics for Baraat processions, ceremonial Mandaps, Sangeet performances, and Haldi rituals.
+- **Heirloom Banqueting**: Pure vegetarian, Jain, Awadhi, and multi-cuisine spreads honoring regional recipes.
+- **Private Family & Bridal Suites**: Opulent, climate-controlled sanctuaries for pre-wedding prayers, blessings, and preparation.
+
+### 3. Interactive UI Components
+- **Banquet Capacity & Date Recommender**: Interactive guest count filter recommending optimal ballrooms (*The Royal Palace* up to 1,200 guests or *The Royal Banquet* up to 500 guests).
+- **Curated Moments Gallery**: Filterable photo gallery (*All*, *Grand Weddings*, *Sangeet & Haldi*, *Banqueting & Feasts*, *White & Gold Decor*).
+- **3D Testimonial Perspective Carousel**: Emotional love letters written by couples and parents.
+- **Bridal Jasmine Petals & Golden Stardust**: Subtle falling jasmine petals and interactive stardust cursor trails on desktop.
+- **Family Consultation Concierge**: Direct reservation inquiry form with celebratory golden burst feedback.
+
+---
+
+## 📁 Project Structure
 
 ```text
 /
-├── index.html                  # Main single-page application entry point
-├── README.md                   # Project documentation
+├── index.html                  # Single-page application entry point
+├── README.md                   # Documentation
 └── assets/                     
     ├── js/                     
-    │   └── main.js             # Core interactive logic and animations
-    ├── css/                    # Modularized CSS styles
-    │   ├── base.css            # Base resets and typography
-    │   ├── navigation.css      # Navbar and mobile menu styles
-    │   ├── hero-section.css    # Hero banner styling
-    │   ├── rose-petal-fall.css # Petal animation logic
-    │   ├── responsive.css      # Media queries and mobile styling
-    │   └── ... (17 more specialized modules)
-    └── images/                 # Local image directory
+    │   └── main.js             # Core interactive logic, filtering & animations
+    └── css/                    # Modularized CSS styles
+        ├── base.css            # Wedding Dress White palette & CSS tokens
+        ├── navigation.css      # Editorial navbar with champagne CTA
+        ├── hero-section.css    # Bridal white hero with trust badges
+        ├── sections-general.css# Section headers, family grid & capacity tool
+        ├── ventures-section.css# High-end venue cards & floor plan inquiries
+        ├── about-section.css   # Heritage storytelling & stats
+        ├── services-section.css# Family celebration services & experiences
+        ├── portfolio-gallery.css # Curated moments gallery & category tabs
+        ├── testimonials.css    # Family testimonials & love letters
+        ├── cta-section.css     # White silk & champagne tour invitation
+        ├── contact-section.css # Private family consultation form
+        └── footer.css          # Editorial grounding footer
 ```
 
-##  Getting Started
+---
 
-Since the project uses vanilla HTML, CSS, and JavaScript, no complicated build tools or Node.js dependencies are required. 
+## 🚀 Previewing Locally
 
-### Prerequisites
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- Any lightweight local HTTP server to preview the site properly (prevents browser CORS blocks on local files).
+Run a local development server using Python:
 
-### Installation & Execution
+```bash
+cd ~/Royal-Banquet-client-project
+python -m http.server 8000
+```
 
-1. Clone or download the repository to your local machine.
-2. Navigate to the project root directory:
-   ```bash
-   cd RoyalBanquet
-   ```
-3. Run a local development server. If you have Python installed, you can simply run:
-   ```bash
-   python -m http.server 8000
-   ```
-   *(Alternatively, use VS Code's "Live Server" extension or `npx serve`)*
-4. Open your web browser and navigate to:
-   ```
-   http://localhost:8000
-   ```
-
-##  Built With
-
-- **HTML5**: Semantic and accessible markup.
-- **CSS3**: Advanced CSS properties including variables, flexbox, CSS Grid, animations, and gradients.
-- **Vanilla JavaScript**: Lightweight ES6+ implementation for logic, event listeners, and DOM manipulation (Zero dependencies).
-- **FontAwesome**: Vector icons for UI elements and social links.
-- **Google Fonts**: Premium typography using *Cormorant Garamond*, *Montserrat*, *Great Vibes*, and *Raleway*.
-
-##  Design System
-
-- **Primary Colors**: Gold, Rose Gold, Deep Rose.
-- **Typography**: A mix of serif (for elegance and headings) and clean sans-serif (for readability and body text).
-- **Aesthetics**: Glassmorphism, soft glowing shadows, CSS gradients, and seamless hover transitions. 
-
-##  License
-
-&copy; 2026 The Royal Banquet Palace. All rights reserved. 
-Crafted with for special moments.
+Then visit:
+```
+http://localhost:8000
+```

@@ -1,34 +1,26 @@
 /**
  * The Royal Banquet Palace - Main Interactions & Animations
+ * Theme: Luxury Wedding Dress White & Multi-Generational Family Hospitality
  * 
  * Features:
- * - Rich Cursor Trail
- * - Scroll-triggered Parallax
- * - IntersectionObserver reveals (Candles, Headings, Unfolding Cards)
- * - 3D Testimonial Carousel
- * - SVG Signature Draw
- * - Form Submission Confetti
+ * - Bridal White & Champagne Gold Ambiance
+ * - Smooth Lenis Scrolling & Navbar Elevation
+ * - Falling Jasmine Petals & Floating Stardust
+ * - Curated Photo Gallery with Category Filtering
+ * - Interactive Banquet Capacity Recommender
+ * - 3D Perspective Testimonial Carousel
+ * - Form Validation with Golden Sparkle Burst
  */
 
 (function () {
     // ─── ACCESSIBILITY CHECK ───────────────
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // ─── UTILITIES ───────────────
-    function getOffsetTop(element) {
-        let offsetTop = 0;
-        while(element) {
-            offsetTop += element.offsetTop;
-            element = element.offsetParent;
-        }
-        return offsetTop;
-    }
-
     // ─── LENIS SMOOTH SCROLL ───────────────
     let lenis;
     if (typeof Lenis !== 'undefined' && !prefersReducedMotion) {
         lenis = new Lenis({
-            duration: 1.5,
+            duration: 1.4,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smoothWheel: true
         });
@@ -45,9 +37,9 @@
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     
     function handleScrollBasic() {
-        const scrolled = window.scrollY > 60;
-        if(navbar) navbar.classList.toggle('scrolled', scrolled);
-        if(scrollTopBtn) scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+        const scrolled = window.scrollY > 40;
+        if (navbar) navbar.classList.toggle('scrolled', scrolled);
+        if (scrollTopBtn) scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
     }
     window.addEventListener('scroll', handleScrollBasic, { passive: true });
 
@@ -57,19 +49,19 @@
     const mobileOverlay = document.getElementById('mobileOverlay');
     
     function toggleMenu() {
-        if(!mobileMenu || !mobileOverlay) return;
+        if (!mobileMenu || !mobileOverlay) return;
         mobileMenu.classList.toggle('active');
         mobileOverlay.classList.toggle('active');
         document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     }
     
-    if(hamburger) hamburger.addEventListener('click', toggleMenu);
-    if(mobileOverlay) mobileOverlay.addEventListener('click', toggleMenu);
+    if (hamburger) hamburger.addEventListener('click', toggleMenu);
+    if (mobileOverlay) mobileOverlay.addEventListener('click', toggleMenu);
     document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', toggleMenu);
     });
 
-    // ─── SMOOTH SCROLL ───────────────
+    // ─── SMOOTH ANCHOR SCROLLING ───────────────
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -77,7 +69,7 @@
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                const offset = 70;
+                const offset = 80;
                 if (lenis) {
                     lenis.scrollTo(target, { offset: -offset });
                 } else {
@@ -88,7 +80,7 @@
         });
     });
 
-    if(scrollTopBtn) {
+    if (scrollTopBtn) {
         scrollTopBtn.addEventListener('click', () => {
             if (lenis) {
                 lenis.scrollTo(0);
@@ -98,7 +90,56 @@
         });
     }
 
-    // ─── RICH CURSOR GLOW TRAIL ───────────────
+    // ─── BRIDAL JASMINE PETALS AMBIANCE ───────────────
+    const petalContainer = document.getElementById('petalContainer');
+    if (petalContainer && !prefersReducedMotion) {
+        const petals = ['❀', '✦', '🌸', '•'];
+        const petalColors = ['#ffffff', '#fcfaf2', '#f6efe2', '#edd9b6'];
+
+        for (let i = 0; i < 20; i++) {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.textContent = petals[Math.floor(Math.random() * petals.length)];
+            petal.style.left = `${Math.random() * 100}vw`;
+            petal.style.color = petalColors[Math.floor(Math.random() * petalColors.length)];
+            
+            const duration = Math.random() * 8 + 9; // 9 - 17 seconds
+            const delay = Math.random() * 10;
+            const drift = (Math.random() - 0.5) * 160;
+            const spin = Math.random() * 360;
+
+            petal.style.animationDuration = `${duration}s`;
+            petal.style.animationDelay = `${delay}s`;
+            petal.style.setProperty('--drift', `${drift}px`);
+            petal.style.setProperty('--spin', `${spin}deg`);
+            petal.style.fontSize = `${Math.random() * 0.8 + 0.8}rem`;
+
+            petalContainer.appendChild(petal);
+        }
+    }
+
+    // ─── FLOATING GOLDEN STARDUST IN HERO ───────────────
+    const heartsContainer = document.getElementById('heartsContainer');
+    if (heartsContainer && !prefersReducedMotion) {
+        const sparks = ['✦', '•', '✧', '⋆'];
+        for (let i = 0; i < 15; i++) {
+            const spark = document.createElement('div');
+            spark.className = 'floating-heart';
+            spark.textContent = sparks[Math.floor(Math.random() * sparks.length)];
+            spark.style.left = `${Math.random() * 95}%`;
+            spark.style.color = '#c5a059';
+            
+            const dur = Math.random() * 7 + 8;
+            const del = Math.random() * 8;
+            spark.style.animationDuration = `${dur}s`;
+            spark.style.animationDelay = `${del}s`;
+            spark.style.fontSize = `${Math.random() * 0.7 + 0.7}rem`;
+
+            heartsContainer.appendChild(spark);
+        }
+    }
+
+    // ─── GOLDEN STARDUST CURSOR TRAIL ───────────────
     if (!prefersReducedMotion && window.matchMedia("(pointer: fine)").matches) {
         const cursorContainer = document.createElement('div');
         cursorContainer.id = 'cursorGlowContainer';
@@ -113,7 +154,7 @@
         document.body.appendChild(cursorContainer);
 
         const particles = [];
-        const maxParticles = 40;
+        const maxParticles = 25;
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
 
@@ -126,11 +167,11 @@
             if (particles.length > maxParticles) return;
             
             const p = document.createElement('div');
-            const size = Math.random() * 15 + 5;
+            const size = Math.random() * 8 + 4;
             p.style.position = 'absolute';
             p.style.width = `${size}px`;
             p.style.height = `${size}px`;
-            p.style.background = `radial-gradient(circle, rgba(201,169,110,0.8) 0%, rgba(201,169,110,0) 70%)`;
+            p.style.background = `radial-gradient(circle, rgba(197,160,89,0.7) 0%, rgba(197,160,89,0) 70%)`;
             p.style.borderRadius = '50%';
             p.style.left = `${mouseX - size/2}px`;
             p.style.top = `${mouseY - size/2}px`;
@@ -143,8 +184,8 @@
             particles.push({
                 element: p,
                 life: 1,
-                dx: (Math.random() - 0.5) * 2,
-                dy: (Math.random() - 0.5) * 2 + 1, // slight downward drift
+                dx: (Math.random() - 0.5) * 1.5,
+                dy: (Math.random() - 0.5) * 1.5 + 0.6,
                 size: size
             });
         }
@@ -154,7 +195,7 @@
             
             for (let i = particles.length - 1; i >= 0; i--) {
                 let p = particles[i];
-                p.life -= 0.03;
+                p.life -= 0.04;
                 
                 if (p.life <= 0) {
                     p.element.remove();
@@ -165,7 +206,7 @@
                     p.element.style.left = `${currentLeft + p.dx}px`;
                     p.element.style.top = `${currentTop + p.dy}px`;
                     p.element.style.opacity = p.life;
-                    p.element.style.transform = `scale(${p.life * 1.5})`;
+                    p.element.style.transform = `scale(${p.life * 1.3})`;
                 }
             }
             requestAnimationFrame(updateCursorParticles);
@@ -179,30 +220,168 @@
         const heroBg = document.querySelector('.hero-bg-img');
         
         if (heroSection && heroBg) {
-            // Generate some particle layers in JS to keep HTML clean
-            for(let i=0; i<15; i++) {
-                const layer = document.createElement('div');
-                layer.className = 'parallax-particle';
-                const size = Math.random() * 80 + 20;
-                layer.style.width = `${size}px`;
-                layer.style.height = `${size}px`;
-                layer.style.left = `${Math.random() * 100}%`;
-                layer.style.setProperty('--duration', `${Math.random() * 20 + 10}s`);
-                layer.style.setProperty('--delay', `-${Math.random() * 20}s`);
-                layer.style.setProperty('--max-opacity', (Math.random() * 0.4 + 0.1).toString());
-                heroSection.appendChild(layer);
-            }
-
             window.addEventListener('scroll', () => {
                 const scrollY = window.scrollY;
                 if (scrollY < window.innerHeight) {
-                    heroBg.style.transform = `translateY(${scrollY * 0.4}px) scale(${1 + scrollY * 0.0005})`;
+                    heroBg.style.transform = `translateY(${scrollY * 0.25}px) scale(${1 + scrollY * 0.0003})`;
                 }
             }, { passive: true });
         }
     }
 
-    // ─── INTERSECTION OBSERVER FOR ALL REVEALS ───────────────
+    // ─── CURATED GALLERY DATA & FILTERING ───────────────
+    const galleryData = [
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/98127645-aded-4a3d-aa1b-85398ad2a5d6-2-1024x1024.jpg',
+            title: 'Imperial Vows & Reception Throne Stage',
+            category: 'weddings',
+            catName: 'Grand Weddings'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/c2f1d74d-f260-4ab5-ae3b-b4afcb9a55c3-1024x1024.jpg',
+            title: 'Royal Bridal Throne & Hanging Floral Canopy',
+            category: 'weddings',
+            catName: 'Grand Weddings'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/224a999c-44c5-47f7-ad56-9aae418b6a41-2-1024x1024.jpg',
+            title: 'Palatial 1,200 Guest Grand Ballroom & Stage',
+            category: 'weddings',
+            catName: 'Grand Weddings'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/04206bb5-2787-4f8a-9777-d4a11d1b32fd-1024x1024.jpg',
+            title: 'VIP Family Lounge & Intimate Pre-Function Salon',
+            category: 'ceremonies',
+            catName: 'Sangeet & Haldi'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/834bb372-a2a9-450b-923e-f21cbe0dd279-1024x1024.jpg',
+            title: 'Festive Milestone & Pre-Wedding Sangeet Stage',
+            category: 'ceremonies',
+            catName: 'Sangeet & Haldi'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/54cf6d38-ea76-48b0-b7d0-aaa109743ead-1024x1024.jpg',
+            title: 'Plush Velvet Elder Lounge & Sangeet Stage View',
+            category: 'ceremonies',
+            catName: 'Sangeet & Haldi'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/c89a38fd-13a6-4a41-b91e-1ef3f226f795-1024x1024.jpg',
+            title: 'Imperial Buffet Banquet Line & Gold Chafing Domes',
+            category: 'feasts',
+            catName: 'Banqueting & Feasts'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/d92da961-5dbd-4942-bbdf-ad5161b10ad7-1024x1024.jpg',
+            title: 'Gourmet Live Counter & Beverage Bar',
+            category: 'feasts',
+            catName: 'Banqueting & Feasts'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/295e37ac-c8c0-40d9-beb9-a40de928a0b7-1024x1024.jpg',
+            title: 'Artisanal Salad Bar & Golden Dessert Presentation',
+            category: 'feasts',
+            catName: 'Banqueting & Feasts'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/30728a39-5aa9-487a-bfd8-e47647fcc89a-1024x1024.jpg',
+            title: 'Royal Dining Hall & Multi-Family Banquet Seating',
+            category: 'feasts',
+            catName: 'Banqueting & Feasts'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/095a4e20-4817-4c96-bb63-df41e1f6722f-1024x1024.jpg',
+            title: 'Royal Tableware & Golden Brass Buffet Stations',
+            category: 'feasts',
+            catName: 'Banqueting & Feasts'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/ec3435b0-4e1d-446a-8fa1-bb5ac086628e-1-1024x1024.jpg',
+            title: 'Tiered Crystal Chandelier & Coffered Ceiling Architecture',
+            category: 'decor',
+            catName: 'White & Gold Decor'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/23b8361e-bf56-4262-8c1f-b96f6273e550-1024x1024.jpg',
+            title: 'Imperial Grand Ballroom with Crystal Chandelier',
+            category: 'decor',
+            catName: 'White & Gold Decor'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/e29f013e-8e6a-47f5-a4ab-ba16c0f644cc-1-1024x1024.jpg',
+            title: 'The Royal Palace Grand Exterior & Valet Entry',
+            category: 'decor',
+            catName: 'White & Gold Decor'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/313eb922-1013-42ad-ae35-ee51198a6646-1-1024x1024.jpg',
+            title: 'Velvet Family Lounge & Ambient Chandelier Lighting',
+            category: 'decor',
+            catName: 'White & Gold Decor'
+        },
+        {
+            img: 'scraped_redesign_copy/theroyalbanquetpalace.com/wp-content/uploads/2025/04/19696b2b-a1a7-4361-99d5-da19098685df-1-1024x1024.jpg',
+            title: 'Luminous Buffet Wings & Backlit Geometric Panels',
+            category: 'decor',
+            catName: 'White & Gold Decor'
+        }
+    ];
+
+    const galleryGrid = document.getElementById('galleryGrid');
+
+    function renderGallery(filter = 'all') {
+        if (!galleryGrid) return;
+        galleryGrid.innerHTML = '';
+        
+        const filtered = filter === 'all' 
+            ? galleryData 
+            : galleryData.filter(item => item.category === filter);
+
+        filtered.forEach(item => {
+            const el = document.createElement('div');
+            el.className = 'gallery-item';
+            el.innerHTML = `
+                <img src="${item.img}" alt="${item.title}" loading="lazy">
+                <div class="gallery-item-caption">
+                    <span>${item.catName}</span>
+                    <h4>${item.title}</h4>
+                </div>
+            `;
+            galleryGrid.appendChild(el);
+        });
+    }
+
+    renderGallery('all');
+
+    window.filterGallery = function (category, button) {
+        document.querySelectorAll('.gallery-filter-btn').forEach(btn => btn.classList.remove('active'));
+        if (button) button.classList.add('active');
+        renderGallery(category);
+    };
+
+    // ─── INTERACTIVE CAPACITY RECOMMENDER ───────────────
+    window.selectCapacity = function (type, button) {
+        document.querySelectorAll('.capacity-btn').forEach(btn => btn.classList.remove('active'));
+        if (button) button.classList.add('active');
+
+        const venueEl = document.getElementById('recomVenue');
+        const descEl = document.getElementById('recomDesc');
+
+        if (type === 'intimate') {
+            venueEl.textContent = 'The Royal Banquet (Intimate Ballroom)';
+            descEl.textContent = 'Specially tailored for Roka ceremonies, engagement parties, milestone anniversaries, and cozy family vows (100–300 guests). Includes private family lounges, customized audio-visual staging, and elder-friendly conversation zones.';
+        } else if (type === 'medium') {
+            venueEl.textContent = 'The Royal Banquet (Main Ballroom)';
+            descEl.textContent = 'Perfect for mid-sized wedding celebrations, lively Sangeet evenings, and pre-wedding feasts (300–600 guests). Seamlessly bridges ceremonial sacred rituals with round-table dining and spacious dance floors.';
+        } else {
+            venueEl.textContent = 'The Royal Palace (Grand Ballroom & Lawns)';
+            descEl.textContent = 'Our flagship palatial venue engineered for mega-scale family celebrations, grand royal Baraat arrivals, double-height chandelier ceilings, and expansive culinary dining wings accommodating 600 to 1,200+ guests.';
+        }
+    };
+
+    // ─── INTERSECTION OBSERVER REVEALS ───────────────
     const observerOptions = {
         root: null,
         rootMargin: '0px 0px -10% 0px',
@@ -214,16 +393,11 @@
             if (entry.isIntersecting) {
                 const el = entry.target;
                 
-                if (el.classList.contains('reveal-heading')) {
-                    el.classList.add('is-revealed');
-                } else if (el.classList.contains('invite-wrapper')) {
-                    el.classList.add('unfolded');
-                } else if (el.classList.contains('candle-accent')) {
+                if (el.classList.contains('candle-accent')) {
                     el.classList.add('lit');
                 } else if (el.classList.contains('signature-container')) {
                     el.classList.add('visible', 'drawn');
                 } else {
-                    // Generic fade in for cards
                     el.style.opacity = '1';
                     el.style.transform = 'translateY(0)';
                 }
@@ -232,55 +406,19 @@
         });
     }, observerOptions);
 
-    // 1. Text Reveals
-    document.querySelectorAll('h1, h2, h3').forEach(heading => {
-        if(heading.closest('.footer-col') || heading.closest('.invite-content-card')) return; // Skip minor headers
-        
-        heading.classList.add('reveal-heading');
-        const text = heading.textContent;
-        heading.innerHTML = '';
-        
-        // Wrap words and chars
-        const words = text.split(' ');
-        words.forEach((word, wordIndex) => {
-            const wordSpan = document.createElement('span');
-            wordSpan.className = 'reveal-word';
-            
-            const chars = word.split('');
-            chars.forEach((char, charIndex) => {
-                const charSpan = document.createElement('span');
-                charSpan.className = 'reveal-char';
-                charSpan.textContent = char;
-                // Stagger delay based on word and character position
-                const delay = (wordIndex * 0.1) + (charIndex * 0.03);
-                charSpan.style.transitionDelay = `${delay}s`;
-                wordSpan.appendChild(charSpan);
-            });
-            
-            heading.appendChild(wordSpan);
-            if(wordIndex < words.length - 1) {
-                heading.appendChild(document.createTextNode(' '));
-            }
-        });
-        
-        mainObserver.observe(heading);
-    });
-
-    // 2. Generic Cards & Elements
-    document.querySelectorAll('.service-card, .team-card, .blog-card, .gallery-item').forEach(el => {
+    // Observe Cards & Accents
+    document.querySelectorAll('.service-card, .family-card, .team-card, .blog-card, .venture-card').forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(40px)';
-        el.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.25, 1, 0.5, 1)';
         mainObserver.observe(el);
     });
 
-    // 3. Candles & Signatures & Invites
-    document.querySelectorAll('.candle-accent, .signature-container, .invite-wrapper').forEach(el => {
+    document.querySelectorAll('.candle-accent, .signature-container').forEach(el => {
         mainObserver.observe(el);
     });
 
-
-    // ─── COUNTERS ───────────────
+    // ─── STATS NUMBER COUNTERS ───────────────
     let countersAnimated = false;
     const statsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -288,7 +426,7 @@
                 countersAnimated = true;
                 document.querySelectorAll('.stat-number[data-count]').forEach(el => {
                     const target = parseInt(el.getAttribute('data-count'));
-                    const duration = 2500;
+                    const duration = 2200;
                     const startTime = performance.now();
                     
                     function update(ts) {
@@ -298,7 +436,7 @@
                         el.textContent = Math.floor(eased * target);
                         
                         if (progress < 1) requestAnimationFrame(update);
-                        else el.textContent = target;
+                        else el.textContent = target + '+';
                     }
                     requestAnimationFrame(update);
                 });
@@ -306,80 +444,78 @@
             }
         });
     });
+    
     const statsRow = document.querySelector('.stats-row');
     if (statsRow) statsObserver.observe(statsRow);
 
-
-    // ─── 3D TESTIMONIAL CAROUSEL ───────────────
+    // ─── 3D PERSPECTIVE TESTIMONIAL CAROUSEL ───────────────
     const carouselContainer = document.querySelector('.carousel-3d-container');
     if (carouselContainer) {
-        // Find existing cards and rebuild them into a 3D track
         const oldCarousel = document.getElementById('testimonialCarousel');
-        const cardsData = Array.from(oldCarousel.querySelectorAll('.testimonial-card')).map(card => {
-            return {
-                stars: card.querySelector('.testimonial-stars').innerHTML,
-                text: card.querySelector('.testimonial-text').innerHTML,
-                author: card.querySelector('.testimonial-author').innerHTML
-            };
-        });
+        if (oldCarousel) {
+            const cardsData = Array.from(oldCarousel.querySelectorAll('.testimonial-card')).map(card => {
+                return {
+                    stars: card.querySelector('.testimonial-stars').innerHTML,
+                    text: card.querySelector('.testimonial-text').innerHTML,
+                    author: card.querySelector('.testimonial-author').innerHTML
+                };
+            });
 
-        // Replace old structure
-        const track = document.createElement('div');
-        track.className = 'carousel-3d-track';
-        carouselContainer.innerHTML = '';
-        carouselContainer.appendChild(track);
+            const track = document.createElement('div');
+            track.className = 'carousel-3d-track';
+            carouselContainer.innerHTML = '';
+            carouselContainer.appendChild(track);
 
-        const totalCards = cardsData.length;
-        const angleIncrement = 360 / totalCards;
-        const radius = 350; // Distance from center
+            const totalCards = cardsData.length;
+            const angleIncrement = 360 / totalCards;
+            const radius = 330;
 
-        cardsData.forEach((data, index) => {
-            const cardEl = document.createElement('div');
-            cardEl.className = 'carousel-3d-card';
-            cardEl.innerHTML = `
-                <div class="testimonial-stars">${data.stars}</div>
-                <p>${data.text}</p>
-                <span class="testimonial-author">${data.author}</span>
-            `;
-            
-            // Position radially
-            const angle = index * angleIncrement;
-            cardEl.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
-            track.appendChild(cardEl);
-        });
+            cardsData.forEach((data, index) => {
+                const cardEl = document.createElement('div');
+                cardEl.className = 'carousel-3d-card';
+                cardEl.innerHTML = `
+                    <div class="testimonial-stars">${data.stars}</div>
+                    <p>${data.text}</p>
+                    <span class="testimonial-author">${data.author}</span>
+                `;
+                
+                const angle = index * angleIncrement;
+                cardEl.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+                track.appendChild(cardEl);
+            });
 
-        let currentAngle = 0;
-        let carouselInterval;
+            let currentAngle = 0;
+            let carouselInterval;
 
-        function rotateCarousel() {
-            currentAngle -= angleIncrement;
-            track.style.transform = `rotateY(${currentAngle}deg)`;
+            function rotateCarousel() {
+                currentAngle -= angleIncrement;
+                track.style.transform = `rotateY(${currentAngle}deg)`;
+            }
+
+            function startCarousel() {
+                carouselInterval = setInterval(rotateCarousel, 4500);
+            }
+
+            startCarousel();
+
+            carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+            carouselContainer.addEventListener('mouseleave', startCarousel);
         }
-
-        function startCarousel() {
-            carouselInterval = setInterval(rotateCarousel, 4000);
-        }
-
-        startCarousel();
-
-        carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
-        carouselContainer.addEventListener('mouseleave', startCarousel);
     }
 
-
-    // ─── FORM SUBMIT CONFETTI BURST ───────────────
+    // ─── FORM SUBMIT WITH GOLDEN SPARKLE BURST ───────────────
     window.handleSubmit = function (e) {
         e.preventDefault();
         const btn = e.target.querySelector('button[type="submit"]');
-        const originalText = btn.textContent;
+        const originalText = btn.innerHTML;
         
-        btn.textContent = 'Sending... 💫';
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Reserving Your Tour...';
         btn.disabled = true;
-        btn.style.opacity = '0.8';
+        btn.style.opacity = '0.9';
         
         setTimeout(() => {
-            btn.textContent = '✓ Received with Love!';
-            btn.style.background = 'var(--gold)';
+            btn.innerHTML = '<i class="fas fa-check"></i> Thank You! We Look Forward to Welcoming Your Family.';
+            btn.style.background = '#997836';
             btn.style.color = '#fff';
             
             if (!prefersReducedMotion) triggerConfettiBurst(btn);
@@ -387,12 +523,12 @@
             e.target.reset();
             
             setTimeout(() => {
-                btn.textContent = originalText;
+                btn.innerHTML = originalText;
                 btn.style.background = '';
                 btn.style.color = '';
                 btn.disabled = false;
-            }, 4000);
-        }, 1500);
+            }, 5000);
+        }, 1200);
     };
 
     function triggerConfettiBurst(element) {
@@ -404,35 +540,35 @@
         container.className = 'confetti-container';
         document.body.appendChild(container);
 
-        const colors = ['#c9a96e', '#d4a5a5', '#b76e6e', '#ffffff'];
-        const shapes = ['burst', 'petal'];
-        const petals = ['🌹', '🌸', '✨', '💖'];
+        const colors = ['#c5a059', '#e5d2ac', '#ffffff', '#dfc68e'];
+        const petals = ['❀', '✦', '✧', '🤍'];
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 40; i++) {
             const piece = document.createElement('div');
-            const isPetal = Math.random() > 0.7;
+            const isPetal = Math.random() > 0.6;
             
             piece.className = `confetti-piece burst ${isPetal ? 'petal' : ''}`;
             
             if (isPetal) {
                 piece.textContent = petals[Math.floor(Math.random() * petals.length)];
+                piece.style.color = colors[Math.floor(Math.random() * colors.length)];
             } else {
                 piece.style.background = colors[Math.floor(Math.random() * colors.length)];
             }
 
             piece.style.setProperty('--start-x', `${startX}px`);
             piece.style.setProperty('--start-y', `${startY}px`);
-            piece.style.setProperty('--end-x', `${startX + (Math.random() - 0.5) * 800}px`);
-            piece.style.setProperty('--end-y', `${startY - (Math.random() * 500 + 200)}px`);
+            piece.style.setProperty('--end-x', `${startX + (Math.random() - 0.5) * 600}px`);
+            piece.style.setProperty('--end-y', `${startY - (Math.random() * 400 + 150)}px`);
             piece.style.setProperty('--rot', `${Math.random() * 720 - 360}deg`);
             
-            piece.style.animationDelay = `${Math.random() * 0.2}s`;
+            piece.style.animationDelay = `${Math.random() * 0.15}s`;
             
             container.appendChild(piece);
         }
 
-        setTimeout(() => container.remove(), 4000);
+        setTimeout(() => container.remove(), 3500);
     }
 
-    console.log('💖 The Royal Banquet Palace — Interactive modules loaded successfully! ✨🌹');
+    console.log('✦ The Royal Banquet Palace — Bridal White & Family Hospitality modules active.');
 })();
