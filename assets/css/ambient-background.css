@@ -5,20 +5,22 @@
     width: 100vw;
     height: 100vh;
     z-index: -2;
-    background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 50%, #f7ebde 100%);
-    background-size: 400% 400%;
-    animation: ambientShift 30s ease-in-out infinite alternate;
+    background: radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.95) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(248, 245, 238, 0.8) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(252, 251, 249, 1) 0%, #f6f2e9 100%);
+    background-size: 150% 150%;
+    animation: ambientShift 25s ease-in-out infinite alternate;
     pointer-events: none;
 }
 
 @keyframes ambientShift {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 0%;
     }
     50% {
         background-position: 100% 50%;
     }
     100% {
-        background-position: 0% 50%;
+        background-position: 50% 100%;
     }
 }
