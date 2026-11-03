@@ -1,159 +1,145 @@
-/* ─── NAVIGATION ─────────────────────── */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 0.8rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: var(--transition);
-            background: transparent;
-        }
+/* ─── NAVIGATION (WEDDING DRESS WHITE THEME) ─────────────────────── */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.18);
+}
 
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(20px);
-            box-shadow: var(--shadow-soft);
-            padding: 0.5rem 2rem;
-        }
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(197, 160, 89, 0.1);
+    padding: 0.65rem 2.5rem;
+    border-bottom-color: rgba(197, 160, 89, 0.28);
+}
 
-        .nav-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: 2px;
-            transition: var(--transition);
-            white-space: nowrap;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-        }
+.nav-logo {
+    font-family: 'Cormorant Garamond', 'Cinzel', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--ink-charcoal);
+    text-decoration: none;
+    letter-spacing: 1.2px;
+    transition: var(--transition);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-        .navbar.scrolled .nav-logo {
-            color: var(--dark);
-            text-shadow: none;
-        }
+.nav-logo-img {
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold);
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(197, 160, 89, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
 
-        .nav-logo .logo-icon {
-            color: var(--gold);
-            margin-right: 4px;
-            animation: logoPulse 2.5s ease-in-out infinite;
-            display: inline-block;
-        }
+.nav-logo:hover .nav-logo-img {
+    transform: scale(1.06);
+    box-shadow: 0 4px 14px rgba(197, 160, 89, 0.4);
+}
 
-        @keyframes logoPulse {
+.nav-logo .logo-icon {
+    color: var(--gold);
+    font-size: 1.25rem;
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
 
-            0%,
-            100% {
-                transform: scale(1);
-                text-shadow: 0 0 10px rgba(201, 169, 110, 0.4);
-            }
+.nav-logo:hover .logo-icon {
+    transform: rotate(45deg) scale(1.15);
+}
 
-            50% {
-                transform: scale(1.2);
-                text-shadow: 0 0 25px rgba(201, 169, 110, 0.9), 0 0 50px rgba(201, 169, 110, 0.4);
-            }
-        }
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.8rem;
-            align-items: center;
-        }
+.nav-links a {
+    text-decoration: none;
+    color: var(--ink-charcoal);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: var(--transition);
+    position: relative;
+    padding: 0.3rem 0;
+}
 
-        .nav-links a {
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.9);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: var(--transition);
-            position: relative;
-            padding: 0.3rem 0;
-        }
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--gold);
+    transition: width 0.35s ease;
+}
 
-        .navbar.scrolled .nav-links a {
-            color: var(--text);
-        }
+.nav-links a:hover::after {
+    width: 100%;
+}
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--gold);
-            transition: width 0.35s ease;
-        }
+.nav-links a:hover {
+    color: var(--gold);
+}
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+.nav-cta {
+    background: var(--gold) !important;
+    color: var(--white) !important;
+    padding: 0.65rem 1.6rem !important;
+    border-radius: var(--border-radius-pill) !important;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 1.2px !important;
+    transition: var(--transition) !important;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
 
-        .nav-links a:hover {
-            color: var(--gold);
-        }
+.nav-cta:hover {
+    background: var(--gold-dark) !important;
+    box-shadow: 0 6px 22px rgba(197, 160, 89, 0.4);
+    transform: translateY(-2px);
+}
 
-        .nav-cta {
-            background: var(--gold) !important;
-            color: var(--white) !important;
-            padding: 0.6rem 1.4rem !important;
-            border-radius: 50px !important;
-            font-size: 0.78rem !important;
-            letter-spacing: 1px !important;
-            transition: var(--transition) !important;
-            animation: ctaGlow 3s ease-in-out infinite;
-        }
+.nav-cta::after {
+    display: none !important;
+}
 
-        @keyframes ctaGlow {
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+    background: none;
+    border: none;
+    padding: 6px;
+}
 
-            0%,
-            100% {
-                box-shadow: 0 0 15px rgba(201, 169, 110, 0.3);
-            }
-
-            50% {
-                box-shadow: 0 0 30px rgba(201, 169, 110, 0.7), 0 0 60px rgba(201, 169, 110, 0.3);
-            }
-        }
-
-        .nav-cta:hover {
-            background: var(--burgundy) !important;
-            box-shadow: var(--shadow-gold);
-            transform: translateY(-2px);
-            animation: none;
-        }
-
-        .nav-cta::after {
-            display: none !important;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1001;
-            background: none;
-            border: none;
-            padding: 6px;
-        }
-
-        .hamburger span {
-            width: 28px;
-            height: 2.5px;
-            background: var(--white);
-            transition: var(--transition);
-            border-radius: 2px;
-        }
-
-        .navbar.scrolled .hamburger span {
-            background: var(--dark);
-        }
+.hamburger span {
+    width: 26px;
+    height: 2.2px;
+    background: var(--ink-charcoal);
+    transition: var(--transition);
+    border-radius: 2px;
+}
