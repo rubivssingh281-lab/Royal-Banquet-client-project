@@ -9,7 +9,7 @@
  * - Curated Photo Gallery with Category Filtering
  * - Interactive Banquet Capacity Recommender
  * - 3D Perspective Testimonial Carousel
- * - Form Validation with Golden Sparkle Burst
+ * - Seamless Form Reservation Confirmation
  */
 
 (function () {
@@ -137,81 +137,6 @@
 
             heartsContainer.appendChild(spark);
         }
-    }
-
-    // ─── GOLDEN STARDUST CURSOR TRAIL ───────────────
-    if (!prefersReducedMotion && window.matchMedia("(pointer: fine)").matches) {
-        const cursorContainer = document.createElement('div');
-        cursorContainer.id = 'cursorGlowContainer';
-        cursorContainer.style.position = 'fixed';
-        cursorContainer.style.top = '0';
-        cursorContainer.style.left = '0';
-        cursorContainer.style.width = '100vw';
-        cursorContainer.style.height = '100vh';
-        cursorContainer.style.pointerEvents = 'none';
-        cursorContainer.style.zIndex = '9998';
-        cursorContainer.style.overflow = 'hidden';
-        document.body.appendChild(cursorContainer);
-
-        const particles = [];
-        const maxParticles = 25;
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        }, { passive: true });
-
-        function createCursorParticle() {
-            if (particles.length > maxParticles) return;
-            
-            const p = document.createElement('div');
-            const size = Math.random() * 8 + 4;
-            p.style.position = 'absolute';
-            p.style.width = `${size}px`;
-            p.style.height = `${size}px`;
-            p.style.background = `radial-gradient(circle, rgba(197,160,89,0.7) 0%, rgba(197,160,89,0) 70%)`;
-            p.style.borderRadius = '50%';
-            p.style.left = `${mouseX - size/2}px`;
-            p.style.top = `${mouseY - size/2}px`;
-            p.style.opacity = '1';
-            p.style.transform = 'scale(1)';
-            p.style.willChange = 'transform, opacity';
-            
-            cursorContainer.appendChild(p);
-
-            particles.push({
-                element: p,
-                life: 1,
-                dx: (Math.random() - 0.5) * 1.5,
-                dy: (Math.random() - 0.5) * 1.5 + 0.6,
-                size: size
-            });
-        }
-
-        function updateCursorParticles() {
-            createCursorParticle();
-            
-            for (let i = particles.length - 1; i >= 0; i--) {
-                let p = particles[i];
-                p.life -= 0.04;
-                
-                if (p.life <= 0) {
-                    p.element.remove();
-                    particles.splice(i, 1);
-                } else {
-                    const currentLeft = parseFloat(p.element.style.left);
-                    const currentTop = parseFloat(p.element.style.top);
-                    p.element.style.left = `${currentLeft + p.dx}px`;
-                    p.element.style.top = `${currentTop + p.dy}px`;
-                    p.element.style.opacity = p.life;
-                    p.element.style.transform = `scale(${p.life * 1.3})`;
-                }
-            }
-            requestAnimationFrame(updateCursorParticles);
-        }
-        updateCursorParticles();
     }
 
     // ─── PARALLAX HERO EFFECT ───────────────
@@ -503,7 +428,7 @@
         }
     }
 
-    // ─── FORM SUBMIT WITH GOLDEN SPARKLE BURST ───────────────
+    // ─── FORM SUBMISSION & CONFIRMATION ───────────────
     window.handleSubmit = function (e) {
         e.preventDefault();
         const btn = e.target.querySelector('button[type="submit"]');
@@ -518,8 +443,6 @@
             btn.style.background = '#997836';
             btn.style.color = '#fff';
             
-            if (!prefersReducedMotion) triggerConfettiBurst(btn);
-            
             e.target.reset();
             
             setTimeout(() => {
@@ -530,45 +453,6 @@
             }, 5000);
         }, 1200);
     };
-
-    function triggerConfettiBurst(element) {
-        const rect = element.getBoundingClientRect();
-        const startX = rect.left + rect.width / 2;
-        const startY = rect.top + rect.height / 2;
-        
-        const container = document.createElement('div');
-        container.className = 'confetti-container';
-        document.body.appendChild(container);
-
-        const colors = ['#c5a059', '#e5d2ac', '#ffffff', '#dfc68e'];
-        const petals = ['❀', '✦', '✧', '🤍'];
-
-        for (let i = 0; i < 40; i++) {
-            const piece = document.createElement('div');
-            const isPetal = Math.random() > 0.6;
-            
-            piece.className = `confetti-piece burst ${isPetal ? 'petal' : ''}`;
-            
-            if (isPetal) {
-                piece.textContent = petals[Math.floor(Math.random() * petals.length)];
-                piece.style.color = colors[Math.floor(Math.random() * colors.length)];
-            } else {
-                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-            }
-
-            piece.style.setProperty('--start-x', `${startX}px`);
-            piece.style.setProperty('--start-y', `${startY}px`);
-            piece.style.setProperty('--end-x', `${startX + (Math.random() - 0.5) * 600}px`);
-            piece.style.setProperty('--end-y', `${startY - (Math.random() * 400 + 150)}px`);
-            piece.style.setProperty('--rot', `${Math.random() * 720 - 360}deg`);
-            
-            piece.style.animationDelay = `${Math.random() * 0.15}s`;
-            
-            container.appendChild(piece);
-        }
-
-        setTimeout(() => container.remove(), 3500);
-    }
 
     console.log('✦ The Royal Banquet Palace — Bridal White & Family Hospitality modules active.');
 })();

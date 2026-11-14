@@ -21,8 +21,8 @@ A luxury editorial web application for **The Royal Banquet Palace & Grand Ballro
 - **Banquet Capacity & Date Recommender**: Interactive guest count filter recommending optimal ballrooms (*The Royal Palace* up to 1,200 guests or *The Royal Banquet* up to 500 guests).
 - **Curated Moments Gallery**: Filterable photo gallery (*All*, *Grand Weddings*, *Sangeet & Haldi*, *Banqueting & Feasts*, *White & Gold Decor*).
 - **3D Testimonial Perspective Carousel**: Emotional love letters written by couples and parents.
-- **Bridal Jasmine Petals & Golden Stardust**: Subtle falling jasmine petals and interactive stardust cursor trails on desktop.
-- **Family Consultation Concierge**: Direct reservation inquiry form with celebratory golden burst feedback.
+- **Bridal Jasmine Petals & Ambient Glow**: Subtle falling jasmine petals and soft bridal white & gold ambiance.
+- **Family Consultation Concierge**: Direct reservation inquiry form with elegant real-time status feedback.
 
 ---
 
