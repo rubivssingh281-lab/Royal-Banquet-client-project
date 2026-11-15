@@ -664,36 +664,38 @@
                         <h3>Reserve Your Date & Private Tour</h3>
                         <p class="form-desc">Fill out your celebration details below and our family concierge will connect with you within 2 business hours.</p>
                         
+                        <div id="formFeedback" style="display:none;padding:1rem;margin-bottom:1.2rem;border-radius:6px;font-size:0.9rem;text-align:center;"></div>
+
                         <div class="form-row">
-                            <input type="text" placeholder="Your Full Name *" required>
-                            <input type="tel" placeholder="Mobile Phone / WhatsApp *" required>
+                            <input type="text" name="fullName" id="inqFullName" placeholder="Your Full Name *" required>
+                            <input type="tel" name="phone" id="inqPhone" placeholder="Mobile Phone / WhatsApp *" required>
                         </div>
                         
                         <div class="form-row">
-                            <input type="email" placeholder="Email Address *" required>
-                            <select required>
+                            <input type="email" name="email" id="inqEmail" placeholder="Email Address *" required>
+                            <select name="celebrationType" id="inqCelebrationType" required>
                                 <option value="">Celebration Type *</option>
-                                <option>Grand Wedding & Reception</option>
-                                <option>Pre-Wedding Function (Sangeet / Haldi / Mehndi)</option>
-                                <option>Milestone Anniversary (Silver / Golden Jubilee)</option>
-                                <option>Roka / Engagement Ceremony</option>
-                                <option>Other Family Milestone</option>
+                                <option value="Grand Wedding & Reception">Grand Wedding & Reception</option>
+                                <option value="Pre-Wedding Function (Sangeet / Haldi / Mehndi)">Pre-Wedding Function (Sangeet / Haldi / Mehndi)</option>
+                                <option value="Milestone Anniversary (Silver / Golden Jubilee)">Milestone Anniversary (Silver / Golden Jubilee)</option>
+                                <option value="Roka / Engagement Ceremony">Roka / Engagement Ceremony</option>
+                                <option value="Other Family Milestone">Other Family Milestone</option>
                             </select>
                         </div>
 
                         <div class="form-row">
-                            <select required>
+                            <select name="estimatedGuests" id="inqEstimatedGuests" required>
                                 <option value="">Estimated Guest Count *</option>
-                                <option>Intimate (100 – 300 Guests)</option>
-                                <option>Medium (300 – 600 Guests)</option>
-                                <option>Grand Gala (600 – 1,200+ Guests)</option>
+                                <option value="Intimate (100 – 300 Guests)">Intimate (100 – 300 Guests)</option>
+                                <option value="Medium (300 – 600 Guests)">Medium (300 – 600 Guests)</option>
+                                <option value="Grand Gala (600 – 1,200+ Guests)">Grand Gala (600 – 1,200+ Guests)</option>
                             </select>
-                            <input type="date" placeholder="Preferred Date" required>
+                            <input type="date" name="preferredDate" id="inqPreferredDate" placeholder="Preferred Date" required>
                         </div>
 
-                        <textarea placeholder="Tell us about your family's vision, custom traditions, or dietary requirements..."></textarea>
+                        <textarea name="message" id="inqMessage" placeholder="Tell us about your family's vision, custom traditions, or dietary requirements..."></textarea>
                         
-                        <button type="submit" class="btn btn-primary" style="width:100%;padding:1rem;font-size:0.86rem;">
+                        <button type="submit" id="inqSubmitBtn" class="btn btn-primary" style="width:100%;padding:1rem;font-size:0.86rem;">
                             <i class="far fa-paper-plane"></i> Submit Family Inquiry & Request Tour
                         </button>
                     </form>
