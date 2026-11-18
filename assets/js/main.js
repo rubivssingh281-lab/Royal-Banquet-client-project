@@ -90,34 +90,6 @@
         });
     }
 
-    // ─── BRIDAL JASMINE PETALS AMBIANCE ───────────────
-    const petalContainer = document.getElementById('petalContainer');
-    if (petalContainer && !prefersReducedMotion) {
-        const petals = ['❀', '✦', '🌸', '•'];
-        const petalColors = ['#ffffff', '#fcfaf2', '#f6efe2', '#edd9b6'];
-
-        for (let i = 0; i < 20; i++) {
-            const petal = document.createElement('div');
-            petal.className = 'petal';
-            petal.textContent = petals[Math.floor(Math.random() * petals.length)];
-            petal.style.left = `${Math.random() * 100}vw`;
-            petal.style.color = petalColors[Math.floor(Math.random() * petalColors.length)];
-            
-            const duration = Math.random() * 8 + 9; // 9 - 17 seconds
-            const delay = Math.random() * 10;
-            const drift = (Math.random() - 0.5) * 160;
-            const spin = Math.random() * 360;
-
-            petal.style.animationDuration = `${duration}s`;
-            petal.style.animationDelay = `${delay}s`;
-            petal.style.setProperty('--drift', `${drift}px`);
-            petal.style.setProperty('--spin', `${spin}deg`);
-            petal.style.fontSize = `${Math.random() * 0.8 + 0.8}rem`;
-
-            petalContainer.appendChild(petal);
-        }
-    }
-
     // ─── FLOATING GOLDEN STARDUST IN HERO ───────────────
     const heartsContainer = document.getElementById('heartsContainer');
     if (heartsContainer && !prefersReducedMotion) {
@@ -332,9 +304,7 @@
             if (entry.isIntersecting) {
                 const el = entry.target;
                 
-                if (el.classList.contains('candle-accent')) {
-                    el.classList.add('lit');
-                } else if (el.classList.contains('signature-container')) {
+                if (el.classList.contains('signature-container')) {
                     el.classList.add('visible', 'drawn');
                 } else {
                     el.style.opacity = '1';
@@ -353,7 +323,7 @@
         mainObserver.observe(el);
     });
 
-    document.querySelectorAll('.candle-accent, .signature-container').forEach(el => {
+    document.querySelectorAll('.signature-container').forEach(el => {
         mainObserver.observe(el);
     });
 

@@ -1,40 +1,7 @@
-/* ─── BRIDAL PETAL AMBIANCE ─────────────────────── */
-.petal-container {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9998;
-    overflow: hidden;
-}
-
+/* Petal overlays removed per design refinement */
+.petal-container,
 .petal {
-    position: absolute;
-    top: -60px;
-    font-size: 1.2rem;
-    animation: petalFall linear infinite;
-    opacity: 0.65;
-    pointer-events: none;
-    filter: drop-shadow(0 2px 5px rgba(197, 160, 89, 0.2));
-}
-
-@keyframes petalFall {
-    0% {
-        transform: translateY(-5vh) translateX(0) rotate(0deg) scale(0.6);
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.75;
-    }
-    50% {
-        opacity: 0.6;
-    }
-    85% {
-        opacity: 0.65;
-    }
-    100% {
-        transform: translateY(108vh) translateX(var(--drift)) rotate(var(--spin)) scale(1.05);
-        opacity: 0;
-    }
+    display: none !important;
 }
 
 /* ─── EDITORIAL TYPOGRAPHY ─────────────────────── */

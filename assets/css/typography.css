@@ -1,0 +1,46 @@
+/* ─── EDITORIAL TYPOGRAPHY (WEDDING DRESS WHITE THEME) ─────────── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cormorant Garamond', 'Cinzel', serif;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--ink-charcoal);
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5.5vw, 4.4rem);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--ink-charcoal);
+    text-shadow: 0 2px 20px rgba(255, 255, 255, 0.8);
+}
+
+h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    letter-spacing: 0.5px;
+    color: var(--ink-charcoal);
+}
+
+h3 {
+    font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+    color: var(--ink-charcoal);
+}
+
+.script-font {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+}
+
+.section-subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.4rem;
+    letter-spacing: 1px;
+}
