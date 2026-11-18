@@ -1,66 +1,355 @@
-/* ─── RESPONSIVE (WEDDING DRESS WHITE THEME) ─────────────────────── */
+/* ─── RESPONSIVE & LOW-END MOBILE PERFORMANCE OPTIMIZATIONS ─────────── */
+
+/* ─── PERFORMANCE: CONTENT VISIBILITY & MEMORY MANAGEMENT ─────────── */
+@media (max-width: 1024px) {
+    /* Defer off-screen rendering for massive DOM & layout performance gains */
+    .ventures-section,
+    .portfolio-section,
+    .services-section,
+    .family-features-section,
+    .team-section,
+    .blog-section,
+    .testimonials-section {
+        content-visibility: auto;
+        contain-intrinsic-size: 1px 700px;
+    }
+
+    /* Fast responsiveness & remove 300ms tap delay */
+    a, button, input, select, textarea {
+        touch-action: manipulation;
+    }
+}
+
+/* ─── TABLETS & PHONES (MAX-WIDTH: 768PX) ─────────────────────────── */
 @media (max-width: 768px) {
+    /* 1. GPU Fill-rate & Battery Optimization */
+    .ambient-bg {
+        animation: none !important;
+        background-size: cover !important;
+        background-attachment: scroll !important;
+    }
+
+    .hero-bg-img {
+        animation: none !important;
+        transform: scale(1.02) !important;
+        filter: saturate(0.85) brightness(1.04) !important;
+    }
+
+    .shimmer-sweep::after,
+    .btn::after {
+        display: none !important; /* Eliminates continuous layer recompositing on hover */
+    }
+
+    /* 2. Navigation & Mobile Menu */
     .nav-links {
         display: none;
     }
 
     .hamburger {
         display: flex;
+        min-width: 44px;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-menu {
+        width: 85vw;
+        max-width: 320px;
+    }
+
+    .mobile-menu a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        font-size: 0.95rem;
+    }
+
+    /* 3. Sections & Editorial Layout */
+    .section {
+        padding: 3.5rem 1.2rem;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
     }
 
     .about-grid,
     .contact-grid {
         grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    /* 4. Hero Section & Typography */
+    .hero {
+        padding: 6rem 1.2rem 4rem;
+        min-height: auto;
     }
 
     .hero-content h1 {
-        font-size: 2.2rem;
+        font-size: clamp(2rem, 7vw, 2.7rem);
+        line-height: 1.2;
     }
 
-    .section {
-        padding: 3rem 1.2rem;
+    .hero-content .hero-tag {
+        font-size: clamp(1.4rem, 5vw, 1.9rem);
     }
 
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 1rem;
+    .hero-content p {
+        font-size: 0.98rem;
+        line-height: 1.7;
+        margin-bottom: 1.6rem;
     }
 
-    .testimonial-card {
-        min-width: 280px;
+    /* Responsive Hero Badge Pills */
+    .hero-badges {
+        gap: 0.5rem;
+        margin-bottom: 1.8rem;
     }
 
-    .venture-card {
-        min-height: 320px;
-    }
-
-    .sparkle-trail {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-logo {
-        font-size: 1.25rem;
-        gap: 8px;
-    }
-
-    .nav-logo-img {
-        height: 36px;
-        width: 36px;
+    .hero-badge-pill {
+        font-size: 0.74rem;
+        padding: 0.35rem 0.8rem;
     }
 
     .hero-buttons {
-        flex-direction: column;
-        align-items: center;
+        gap: 0.8rem;
+        width: 100%;
     }
 
-    .btn {
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    /* 5. Touch-Optimized Form Elements (Zero Safari Auto-Zoom) */
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        font-size: 16px !important; /* CRITICAL: Prevents iOS Safari & Android Chrome auto-zoom */
+        min-height: 48px; /* Accessible 48px touch target */
+        padding: 0.85rem 1rem;
+        border-radius: 6px;
+    }
+
+    .contact-form .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .contact-form button[type="submit"] {
+        min-height: 52px;
+        font-size: 0.92rem;
+    }
+
+    /* 6. Touch-Friendly Gallery Filter Bar */
+    .gallery-filters {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 0.2rem 0 0.8rem;
+        gap: 0.5rem;
+        justify-content: flex-start;
+        scrollbar-width: none;
+        margin-bottom: 2rem;
+    }
+
+    .gallery-filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gallery-filter-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        padding: 0.6rem 1.1rem;
+        font-size: 0.8rem;
+        min-height: 44px;
+        border-radius: 50px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    .gallery-item {
+        min-height: 160px;
+        border-radius: 6px;
+    }
+
+    .gallery-item-caption {
+        padding: 0.8rem;
+    }
+
+    .gallery-item-caption h4 {
+        font-size: 0.85rem;
+    }
+
+    .gallery-item-caption span {
+        font-size: 0.68rem;
+    }
+
+    /* 7. Native Touch Scroll Testimonials Carousel (Zero 3D Lag) */
+    .carousel-3d-container {
+        height: auto;
+        perspective: none !important;
+        overflow: visible;
+        padding: 0;
+    }
+
+    .carousel-mobile-track {
+        display: flex;
+        gap: 1.2rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 0.5rem 0.5rem 1.5rem;
+        scrollbar-width: none;
+    }
+
+    .carousel-mobile-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .carousel-mobile-card {
+        flex: 0 0 85%;
+        max-width: 320px;
+        scroll-snap-align: center;
+        background: var(--wedding-white);
+        border: 1px solid rgba(197, 160, 89, 0.3);
+        border-radius: var(--border-radius-lg);
+        padding: 1.8rem 1.4rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        text-align: center;
+    }
+
+    .carousel-mobile-card .testimonial-stars {
+        color: var(--gold);
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+        letter-spacing: 2px;
+    }
+
+    .carousel-mobile-card p {
+        font-size: 0.92rem;
+        font-style: italic;
+        color: var(--ink-body);
+        line-height: 1.65;
+        margin-bottom: 1rem;
+    }
+
+    .carousel-mobile-card .testimonial-author {
+        font-family: 'Cinzel', serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: var(--gold-dark);
+        display: block;
+        text-transform: uppercase;
+    }
+
+    /* 8. Venue & Experience Cards */
+    .venture-card {
+        min-height: 340px;
+    }
+
+    .venture-card-overlay {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .family-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .services-feature-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.8rem;
+    }
+
+    .services-feature-text .section-subtitle {
+        text-align: center !important;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .capacity-box {
+        padding: 1.8rem 1.2rem;
+    }
+
+    .capacity-options {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .capacity-btn {
+        width: 100%;
+        min-height: 46px;
+    }
+
+    .capacity-result-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+    }
+
+    .capacity-result-card .btn {
         width: 100%;
         text-align: center;
+    }
+}
+
+/* ─── ULTRA-SMALL PHONES (MAX-WIDTH: 480PX) ─────────────────────────── */
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 1.15rem;
+        gap: 6px;
+    }
+
+    .nav-logo-img {
+        height: 34px;
+        width: 34px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.85rem;
     }
 
     .stats-row {
         grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .site-footer {
+        padding: 3.5rem 1.2rem 2rem;
     }
 }

@@ -13,14 +13,15 @@
  */
 
 (function () {
-    // ─── ACCESSIBILITY CHECK ───────────────
+    // ─── DEVICE & ACCESSIBILITY CHECKS ───────────────
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouchOrMobile = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 1024);
 
-    // ─── LENIS SMOOTH SCROLL ───────────────
+    // ─── LENIS SMOOTH SCROLL (DESKTOP ONLY FOR 60FPS MOBILE SCROLL) ───
     let lenis;
-    if (typeof Lenis !== 'undefined' && !prefersReducedMotion) {
+    if (typeof Lenis !== 'undefined' && !prefersReducedMotion && !isTouchOrMobile) {
         lenis = new Lenis({
-            duration: 1.4,
+            duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smoothWheel: true
         });
@@ -92,9 +93,9 @@
 
     // ─── FLOATING GOLDEN STARDUST IN HERO ───────────────
     const heartsContainer = document.getElementById('heartsContainer');
-    if (heartsContainer && !prefersReducedMotion) {
+    if (heartsContainer && !prefersReducedMotion && !isTouchOrMobile) {
         const sparks = ['✦', '•', '✧', '⋆'];
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 8; i++) {
             const spark = document.createElement('div');
             spark.className = 'floating-heart';
             spark.textContent = sparks[Math.floor(Math.random() * sparks.length)];
@@ -111,8 +112,8 @@
         }
     }
 
-    // ─── PARALLAX HERO EFFECT ───────────────
-    if (!prefersReducedMotion) {
+    // ─── PARALLAX HERO EFFECT (DESKTOP ONLY) ───────────
+    if (!prefersReducedMotion && !isTouchOrMobile) {
         const heroSection = document.getElementById('home');
         const heroBg = document.querySelector('.hero-bg-img');
         
@@ -240,7 +241,7 @@
             const el = document.createElement('div');
             el.className = 'gallery-item';
             el.innerHTML = `
-                <img src="${item.img}" alt="${item.title}" loading="lazy">
+                <img src="${item.img}" alt="${item.title}" loading="lazy" decoding="async">
                 <div class="gallery-item-caption">
                     <span>${item.catName}</span>
                     <h4>${item.title}</h4>
@@ -357,7 +358,7 @@
     const statsRow = document.querySelector('.stats-row');
     if (statsRow) statsObserver.observe(statsRow);
 
-    // ─── 3D PERSPECTIVE TESTIMONIAL CAROUSEL ───────────────
+    // ─── ADAPTIVE TESTIMONIAL CAROUSEL (NATIVE TOUCH FOR MOBILE, 3D FOR DESKTOP) ───
     const carouselContainer = document.querySelector('.carousel-3d-container');
     if (carouselContainer) {
         const oldCarousel = document.getElementById('testimonialCarousel');
@@ -370,45 +371,67 @@
                 };
             });
 
-            const track = document.createElement('div');
-            track.className = 'carousel-3d-track';
-            carouselContainer.innerHTML = '';
-            carouselContainer.appendChild(track);
+            const isMobileScreen = window.innerWidth <= 768 || isTouchOrMobile;
 
-            const totalCards = cardsData.length;
-            const angleIncrement = 360 / totalCards;
-            const radius = 330;
+            if (isMobileScreen) {
+                // High-performance touch scroll-snap track for mobile devices
+                const track = document.createElement('div');
+                track.className = 'carousel-mobile-track';
+                carouselContainer.innerHTML = '';
+                carouselContainer.appendChild(track);
 
-            cardsData.forEach((data, index) => {
-                const cardEl = document.createElement('div');
-                cardEl.className = 'carousel-3d-card';
-                cardEl.innerHTML = `
-                    <div class="testimonial-stars">${data.stars}</div>
-                    <p>${data.text}</p>
-                    <span class="testimonial-author">${data.author}</span>
-                `;
-                
-                const angle = index * angleIncrement;
-                cardEl.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
-                track.appendChild(cardEl);
-            });
+                cardsData.forEach(data => {
+                    const cardEl = document.createElement('div');
+                    cardEl.className = 'carousel-mobile-card';
+                    cardEl.innerHTML = `
+                        <div class="testimonial-stars">${data.stars}</div>
+                        <p>${data.text}</p>
+                        <span class="testimonial-author">${data.author}</span>
+                    `;
+                    track.appendChild(cardEl);
+                });
+            } else {
+                // Luxury 3D perspective rotation for desktop
+                const track = document.createElement('div');
+                track.className = 'carousel-3d-track';
+                carouselContainer.innerHTML = '';
+                carouselContainer.appendChild(track);
 
-            let currentAngle = 0;
-            let carouselInterval;
+                const totalCards = cardsData.length;
+                const angleIncrement = 360 / totalCards;
+                const radius = 330;
 
-            function rotateCarousel() {
-                currentAngle -= angleIncrement;
-                track.style.transform = `rotateY(${currentAngle}deg)`;
+                cardsData.forEach((data, index) => {
+                    const cardEl = document.createElement('div');
+                    cardEl.className = 'carousel-3d-card';
+                    cardEl.innerHTML = `
+                        <div class="testimonial-stars">${data.stars}</div>
+                        <p>${data.text}</p>
+                        <span class="testimonial-author">${data.author}</span>
+                    `;
+                    
+                    const angle = index * angleIncrement;
+                    cardEl.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+                    track.appendChild(cardEl);
+                });
+
+                let currentAngle = 0;
+                let carouselInterval;
+
+                function rotateCarousel() {
+                    currentAngle -= angleIncrement;
+                    track.style.transform = `rotateY(${currentAngle}deg)`;
+                }
+
+                function startCarousel() {
+                    carouselInterval = setInterval(rotateCarousel, 4500);
+                }
+
+                startCarousel();
+
+                carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+                carouselContainer.addEventListener('mouseleave', startCarousel);
             }
-
-            function startCarousel() {
-                carouselInterval = setInterval(rotateCarousel, 4500);
-            }
-
-            startCarousel();
-
-            carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
-            carouselContainer.addEventListener('mouseleave', startCarousel);
         }
     }
 
